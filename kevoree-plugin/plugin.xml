@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="KevScript Editor"
+            extensions="kevs"
+            icon="icons/kevs_16x16.png"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="org.kevoree.tools.eclipse.KevScriptEditor"
+            id="org.kevoree.tools.eclipse.KevScriptEditor">
+      </editor>
+   </extension>
+
+</plugin>
