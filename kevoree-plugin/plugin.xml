@@ -12,6 +12,33 @@
             id="org.kevoree.tools.eclipse.KevScriptEditor">
       </editor>
    </extension>
+      <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Kevoree Model UI Editor"
+            extensions="kevs"
+            icon="icons/kevs_16x16.png"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor"
+            id="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor">
+      </editor>
+   </extension>
+
+<extension point="org.eclipse.ui.popupMenus"> 
+<objectContribution 
+      id="org.eclipse.ui.articles.action.contribution.popup.runkevs"
+   objectClass="org.eclipse.core.resources.IFile"
+   nameFilter="*.kevs">
+      <action
+         id="org.eclipse.ui.articles.action.contribution.object.runkevs.action" 
+         label="Start a node on Kevscript"
+         icon="icons/red_dot.gif"
+         menubarPath="additions" 
+	      class="org.kevoree.tools.editor.eclipse.editors.RunAsKevScriptAction"> 
+      </action> 
+   </objectContribution> 
+</extension>
+   
    <extension
          id="org.eclipse.kevoree.ide.wizard"
          name="newKevoreeClass"
