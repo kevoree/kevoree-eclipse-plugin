@@ -190,4 +190,10 @@
          </newWizardShortcut>
       </perspectiveExtension>
    </extension>
+  <extension point="org.eclipse.m2e.core.archetypeCatalogs">
+  	<remote description="Maven Central Catalog"
+    	      url="http://repo1.maven.org/maven2/"/>
+  	<remote description="Kevoree Archetype Catalog"
+    	      url="http://sd-35000.dedibox.fr/"/>
+	</extension>
 </plugin>
