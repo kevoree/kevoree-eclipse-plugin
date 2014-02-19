@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="KevoreeEclipsePluginFeature"
+      label="KevoreeEclipsePluginFeature"
+      version="3.4.0"
+      provider-name="Kevoree Team">
+
+   <description url="http://www.kevoree.org">
+      Plugin for facilitating the kevoree developement
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="kevoree-eclipse-plugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
