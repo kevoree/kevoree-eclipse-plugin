@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Composite;
 public class NewXtendKevoreeGroupWizardPage extends AbstractNewKevoreeElementWizardPage {
 
 	public NewXtendKevoreeGroupWizardPage() {
-		super(ANNOTATION_TYPE, NewXtendKevoreeGroupWizard.TITLE, ".xtend");
+		super(CLASS_TYPE, NewXtendKevoreeGroupWizard.TITLE, ".xtend");
 		this.setTitle(NewXtendKevoreeGroupWizard.TITLE);
 		this.setDescription(Messages.XTEND_KEVOREE_GROUP_WIZARD_DESCRIPTION);
 	}
@@ -36,7 +36,7 @@ public class NewXtendKevoreeGroupWizardPage extends AbstractNewKevoreeElementWiz
 
 	@Override
 	protected String getTypeContent(String indentation, String lineSeparator) {
-		return XtendKevoreeCreatorUtil.getInstance().createKevoreeGroup(getTypeName());
+		return XtendKevoreeCreatorUtil.getInstance().createKevoreeGroupXtend(getTypeName());
 	}
 
 }

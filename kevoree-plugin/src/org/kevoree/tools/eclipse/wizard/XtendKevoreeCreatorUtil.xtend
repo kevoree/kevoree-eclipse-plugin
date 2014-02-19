@@ -21,6 +21,7 @@ class XtendKevoreeCreatorUtil {
 		if (packageFragment.getElementName() != null && !packageFragment.getElementName().equals("")) {
 			sb.append("package ");
 			sb.append(packageFragment.getElementName());
+			sb.append(lineSeparator);
 		}
 		return sb.toString();
 	}
@@ -100,7 +101,7 @@ class «componentName» {
 
 	}
 	
-	def String createKevoreeGroup(String groupName){
+	def String createKevoreeGroupXtend(String groupName){
 		val template = '''
 import org.kevoree.ContainerRoot
 import org.kevoree.annotation.GroupType
@@ -153,7 +154,7 @@ class «groupName» implements ModelListener {
 	}
 	
 
-	def String createKevoreeChannel(String channelName){
+	def String createKevoreeChannelXtend(String channelName){
 		val template = '''
 import org.kevoree.annotation.ChannelType
 import org.kevoree.annotation.KevoreeInject
@@ -179,5 +180,109 @@ public class «channelName» implements ChannelDispatch {
 		'''
 		return template
 	}
+
+
+	def String createKevoreeComponentJava(String componentName) {
+		val template = '''
+
+import org.kevoree.annotation.*;
+
+@ComponentType
+@Library(name = "Java")
+public class «componentName» {
+
+    @Param(defaultValue = "Default Content")
+    String message;
+
+    @KevoreeInject
+    org.kevoree.api.Context context;
+
+    @Output
+    org.kevoree.api.Port out;
+
+    @Input
+    public String in(Object i) {
+        String msg = message+" from "+context.getInstanceName()+"@"+context.getNodeName();
+        System.out.println(msg);
+        out.send(msg);
+        return msg;
+    }
+
+    @Start
+    public void start() {}
+
+    @Stop
+    public void stop() {}
+
+    @Update
+    public void update() {System.out.println("Param updated!");}
+
+}
+
+					'''
+
+		return template
+
+	}
+	
+	def String createKevoreeGroupJava(String groupName){
+		val template = '''
+import org.kevoree.annotation.*;
+import org.kevoree.api.handler.ModelListener;
+
+@GroupType
+@Library(name = "Java")
+public class «groupName» implements ModelListener {
+
+    @KevoreeInject
+    public ModelService modelService;
+
+    @Start
+    public void start() {}
+
+    @Stop
+    public void stop() {}
+
+    public boolean preUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+
+    public boolean initUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+
+    public boolean afterLocalUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+
+    public void modelUpdated() {}
+
+    public void preRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {}
+
+    public void postRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {}
+
+}
+		'''
+		return template
+	}
+	
+
+	def String createKevoreeChannelJava(String channelName){
+		val template = '''
+import org.kevoree.annotation.*;
+import org.kevoree.api.*;
+
+@ChannelType
+@Library(name = "Java")
+public class «channelName» implements ChannelDispatch {
+
+    @KevoreeInject
+    ChannelContext channelContext;
+
+    @Override
+    public void dispatch(final Object payload, final Callback callback) {
+        for (Port p : channelContext.getLocalPorts()) {
+            p.call(payload, callback);
+        }
+	}
+}    
+		'''
+		return template
+	}
+
 
 }

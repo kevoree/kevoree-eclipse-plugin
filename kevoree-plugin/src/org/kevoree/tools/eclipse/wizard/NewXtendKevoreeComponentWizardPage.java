@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Composite;
 public class NewXtendKevoreeComponentWizardPage extends AbstractNewKevoreeElementWizardPage {
 
 	public NewXtendKevoreeComponentWizardPage() {
-		super(ANNOTATION_TYPE, NewXtendKevoreeComponentWizard.TITLE, ".xtend");
+		super(CLASS_TYPE, NewXtendKevoreeComponentWizard.TITLE, ".xtend");
 		this.setTitle(NewXtendKevoreeComponentWizard.TITLE);
 		this.setDescription(Messages.XTEND_KEVOREE_COMPONENT_WIZARD_DESCRIPTION);
 	}

@@ -6,12 +6,12 @@ import org.eclipse.swt.widgets.Composite;
 /**
  * @author Olivier Barais - Initial contribution and API
  */
-public class NewXtendKevoreeChannelWizardPage extends AbstractNewKevoreeElementWizardPage {
+public class NewJavaKevoreeGroupWizardPage extends AbstractNewKevoreeElementWizardPage {
 
-	public NewXtendKevoreeChannelWizardPage() {
-		super(CLASS_TYPE, NewXtendKevoreeChannelWizard.TITLE, ".xtend");
-		this.setTitle(NewXtendKevoreeChannelWizard.TITLE);
-		this.setDescription(Messages.XTEND_KEVOREE_CHANNEL_WIZARD_DESCRIPTION);
+	public NewJavaKevoreeGroupWizardPage() {
+		super(CLASS_TYPE, NewJavaKevoreeGroupWizard.TITLE, ".java");
+		this.setTitle(NewJavaKevoreeGroupWizard.TITLE);
+		this.setDescription(Messages.JAVA_KEVOREE_GROUP_WIZARD_DESCRIPTION);
 	}
 
 	public void createControl(Composite parent) {
@@ -26,16 +26,17 @@ public class NewXtendKevoreeChannelWizardPage extends AbstractNewKevoreeElementW
 
 	@Override
 	protected String getElementCreationErrorMessage() {
-		return Messages.ERROR_CREATING_KEVOREE_CHANNEL;
+		return Messages.ERROR_CREATING_GROUP;
 	}
 
 	@Override
 	protected String getPackageDeclaration(String lineSeparator) {
-		return XtendKevoreeCreatorUtil.getInstance().createPackageDeclaration(getTypeName(), getPackageFragment(), lineSeparator);
+		return XtendKevoreeCreatorUtil.getInstance().createPackageDeclaration(getTypeName(), getPackageFragment(), ";\n");
 	}
 
 	@Override
 	protected String getTypeContent(String indentation, String lineSeparator) {
-		return XtendKevoreeCreatorUtil.getInstance().createKevoreeChannelXtend(getTypeName());
+		return XtendKevoreeCreatorUtil.getInstance().createKevoreeGroupJava(getTypeName());
 	}
+
 }

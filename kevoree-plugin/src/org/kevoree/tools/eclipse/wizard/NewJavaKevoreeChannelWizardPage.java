@@ -6,12 +6,12 @@ import org.eclipse.swt.widgets.Composite;
 /**
  * @author Olivier Barais - Initial contribution and API
  */
-public class NewXtendKevoreeChannelWizardPage extends AbstractNewKevoreeElementWizardPage {
+public class NewJavaKevoreeChannelWizardPage extends AbstractNewKevoreeElementWizardPage {
 
-	public NewXtendKevoreeChannelWizardPage() {
-		super(CLASS_TYPE, NewXtendKevoreeChannelWizard.TITLE, ".xtend");
-		this.setTitle(NewXtendKevoreeChannelWizard.TITLE);
-		this.setDescription(Messages.XTEND_KEVOREE_CHANNEL_WIZARD_DESCRIPTION);
+	public NewJavaKevoreeChannelWizardPage() {
+		super(CLASS_TYPE, NewJavaKevoreeChannelWizard.TITLE, ".java");
+		this.setTitle(NewJavaKevoreeChannelWizard.TITLE);
+		this.setDescription(Messages.JAVA_KEVOREE_CHANNEL_WIZARD_DESCRIPTION);
 	}
 
 	public void createControl(Composite parent) {
@@ -31,11 +31,11 @@ public class NewXtendKevoreeChannelWizardPage extends AbstractNewKevoreeElementW
 
 	@Override
 	protected String getPackageDeclaration(String lineSeparator) {
-		return XtendKevoreeCreatorUtil.getInstance().createPackageDeclaration(getTypeName(), getPackageFragment(), lineSeparator);
+		return XtendKevoreeCreatorUtil.getInstance().createPackageDeclaration(getTypeName(), getPackageFragment(), ";\n");
 	}
 
 	@Override
 	protected String getTypeContent(String indentation, String lineSeparator) {
-		return XtendKevoreeCreatorUtil.getInstance().createKevoreeChannelXtend(getTypeName());
+		return XtendKevoreeCreatorUtil.getInstance().createKevoreeChannelJava(getTypeName());
 	}
 }

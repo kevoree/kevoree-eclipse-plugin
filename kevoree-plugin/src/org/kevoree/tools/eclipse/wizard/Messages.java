@@ -23,13 +23,17 @@ TYPE_EXISTS_1=\ already exists
 	private static final String BUNDLE_NAME = "org.kevoree.tools.eclipse.wizard.messages"; //$NON-NLS-1$
 	public static String ERROR_CREATING_PACKAGE;
 	public static String ERROR_CREATING_CLASS;
-	public static String XTEND_KEVOREE_COMPONENT_WIZARD_DESCRIPTION;
 	public static String ERROR_CREATING_KEVOREE_CHANNEL;
-	public static String XTEND_KEVOREE_CHANNEL_WIZARD_DESCRIPTION;
 	public static String ERROR_CREATING_GROUP;
-	public static String XTEND_KEVOREE_GROUP_WIZARD_DESCRIPTION;
 	public static String ERROR_CREATING_NODE;
+	public static String XTEND_KEVOREE_COMPONENT_WIZARD_DESCRIPTION;
+	public static String XTEND_KEVOREE_CHANNEL_WIZARD_DESCRIPTION;
 	public static String XTEND_KEVOREE_NODETYPE_WIZARD_DESCRIPTION;
+	public static String XTEND_KEVOREE_GROUP_WIZARD_DESCRIPTION;
+	public static String JAVA_KEVOREE_COMPONENT_WIZARD_DESCRIPTION;
+	public static String JAVA_KEVOREE_CHANNEL_WIZARD_DESCRIPTION;
+	public static String JAVA_KEVOREE_NODETYPE_WIZARD_DESCRIPTION;
+	public static String JAVA_KEVOREE_GROUP_WIZARD_DESCRIPTION;
 	public static String TYPE_EXISTS_0;
 	public static String TYPE_EXISTS_1;
 	static {
