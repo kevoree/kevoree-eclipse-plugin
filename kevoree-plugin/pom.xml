@@ -43,23 +43,24 @@
 
   <build>
     <plugins>
-     <plugin>
-                <groupId>org.kevoree.tools</groupId>
-                <artifactId>org.kevoree.tools.mavenplugin</artifactId>
-                <version>${kevoree.version}</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <nodename>node0</nodename>
-                    <model>src/main/kevs/main.kevs</model>
-                </configuration>
-            </plugin>
+    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets combine.children="append">
+						<fileset>
+							<directory>${basedir}/src/main/generated-sources</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
@@ -72,6 +73,9 @@
 							<goal>xtend-install-debug-info</goal>
 							<goal>xtend-test-install-debug-info</goal>
 						</goals>
+<!-- 					      <configuration>
+                            <outputDirectory>xtend-gen</outputDirectory>
+                        </configuration>-->
 					</execution>
 				</executions>
 			</plugin>
