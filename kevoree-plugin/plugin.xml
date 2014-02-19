@@ -6,7 +6,7 @@
       <editor
             name="KevScript Editor"
             extensions="kevs"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="org.kevoree.tools.eclipse.KevScriptEditor"
             id="org.kevoree.tools.eclipse.KevScriptEditor">
@@ -17,7 +17,7 @@
       <editor
             name="Kevoree Model UI Editor"
             extensions="kevs"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor"
             id="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor">
@@ -58,7 +58,8 @@
       </category>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewXtendClassWizard"
             name="New Xtend Kevoree Component">
             <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeComponentWizard"/>
@@ -68,17 +69,19 @@
       </wizard>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewXtendChannelWizard"
             name="New Xtend Kevoree Channel">
             <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeChannelWizard"/>
-			<description>
+			<description>	
             	New Xtend Kevoree Channel
          	</description>
       </wizard>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewXtendGroupWizard"
             name="New Xtend Kevoree Group">
             <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeGroupWizard"/>
@@ -88,7 +91,8 @@
       </wizard>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewJavaClassWizard"
             name="New Java Kevoree Component">
             <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeComponentWizard"/>
@@ -98,7 +102,8 @@
       </wizard>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewJavaChannelWizard"
             name="New Java Kevoree Channel">
             <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeChannelWizard"/>
@@ -108,7 +113,8 @@
       </wizard>
       <wizard
             category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs_16x16.png"
+            icon="icons/kevs.png"
+            descriptionImage="icons/kevs.png"
             id="org.eclipse.kevoree.ide.wizards.NewJavaGroupWizard"
             name="New Java Kevoree Group">
             <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeGroupWizard"/>

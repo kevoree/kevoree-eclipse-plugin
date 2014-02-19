@@ -16,7 +16,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.ITextEditor;
-import org.eclipse.xtext.ui.IImageHelper.IImageDescriptorHelper;
+import org.kevoree.tools.eclipse.Activator;
 
 /**
  * @author Olivier Barais - Initial contribution and API
@@ -27,8 +27,9 @@ public class AbstractNewKevoreeElementWizard extends NewElementWizard {
 
 	public AbstractNewKevoreeElementWizard( AbstractNewKevoreeElementWizardPage page, String title) {
 		this.page= page;
-//		ImageDescriptor image = imgHelper.getImageDescriptor("kevs_16x16.png");
-//		setDefaultPageImageDescriptor(image);
+		ImageDescriptor icon = Activator.getImageDescriptor("icons/kevs_16x16.png"); 
+		System.err.println(icon.toString());
+		setDefaultPageImageDescriptor(icon);
 		setDialogSettings(JavaPlugin.getDefault().getDialogSettings());
 		setWindowTitle(title);
 	}
