@@ -36,6 +36,12 @@
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+        <groupId>org.kevoree.tools</groupId>
+		 <artifactId>org.kevoree.tools.ui.editor</artifactId>
+   	    <version>3.4.0</version>
+         <scope>runtime</scope>
+		</dependency>  
         
     </dependencies>
 
