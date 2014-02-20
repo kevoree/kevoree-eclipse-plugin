@@ -18,20 +18,7 @@ public class KevoreeLauncher implements
 		String modelPath = configuration.getAttribute(
 				KevoreeLauncherConfigurationConstants.LAUNCH_MODEL_PATH, "");
 
-		String languageName = configuration
-				.getAttribute(
-						KevoreeLauncherConfigurationConstants.LAUNCH_SELECTED_LANGUAGE,
-						"");
+		//TODO ;)
 
-		IConfigurationElement confElement = null;
-		IConfigurationElement[] confElements = Platform.getExtensionRegistry()
-				.getConfigurationElementsFor(
-						"org.gemoc.gemoc_language_workbench.xdsml");
-		// retrieve the extension for the chosen language
-		for (int i = 0; i < confElements.length; i++) {
-			if (confElements[i].getAttribute("name").equals(languageName)) {
-				confElement = confElements[i];
-			}
-		}
 	}
 }

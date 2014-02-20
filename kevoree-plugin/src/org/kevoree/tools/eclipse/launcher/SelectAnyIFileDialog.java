@@ -26,7 +26,7 @@ public class SelectAnyIFileDialog extends ResourceListSelectionDialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Control result = super.createDialogArea(parent);
-		setPattern("*");
+		setPattern("*.kevs");
 		return result;
 	}
 	
@@ -38,7 +38,7 @@ public class SelectAnyIFileDialog extends ResourceListSelectionDialog {
 			Field patternField = ResourceListSelectionDialog.class.getDeclaredField("pattern");
 			patternField.setAccessible(true);
 			Text pattern =(Text) patternField.get(this);
-			pattern.setText("*");
+			pattern.setText("*.kevs");
 		} catch (NoSuchFieldException e) {
 			Activator.error(e.getMessage(), e);
 		} catch (SecurityException e) {

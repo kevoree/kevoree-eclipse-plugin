@@ -17,7 +17,7 @@
     
   </properties>
 
-  <dependencies>
+  <dependencies>            
         <dependency>
             <groupId>org.kevoree</groupId>
             <artifactId>org.kevoree.annotation.api</artifactId>

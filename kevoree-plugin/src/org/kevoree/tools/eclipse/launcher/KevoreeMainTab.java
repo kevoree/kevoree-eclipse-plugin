@@ -55,20 +55,20 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 		setControl(area);
 
 		Group modelArea = new Group(area, SWT.NULL);
-		modelArea.setText("Model:");
+		modelArea.setText("KevScript:");
 		modelArea.setLayout(new FillLayout());
 		// Create the area for the filename to get
 		createModelLayout(modelArea, null);
 		
-		Group languageArea = new Group(area, SWT.NULL);
-		languageArea.setText("Language:");
-		languageArea.setLayout(new FillLayout());
-		createLanguageLayout(languageArea, null);
+		//Group languageArea = new Group(area, SWT.NULL);
+		//languageArea.setText("Language:");
+		//languageArea.setLayout(new FillLayout());
+		//createLanguageLayout(languageArea, null);
 		
-		Group prototypeArea = new Group(area, SWT.NULL);
-		prototypeArea.setText("Gemoc Engine Prototype parameters (these info will probably be removed in future version):");
-		prototypeArea.setLayout(new FillLayout());
-		createPrototypeLayout(prototypeArea, null);
+		//Group prototypeArea = new Group(area, SWT.NULL);
+		//prototypeArea.setText("Gemoc Engine Prototype parameters (these info will probably be removed in future version):");
+		//prototypeArea.setLayout(new FillLayout());
+		//createPrototypeLayout(prototypeArea, null);
 
 		
 	}
@@ -83,13 +83,6 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			this.modelLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_MODEL_PATH, ""));
-			this.languageCombo.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_SELECTED_LANGUAGE, ""));
-			this.metamodelLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_MM_PATH, ""));
-			this.ccslLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_CCSL_FILE_PATH, ""));
-			this.jarFolderLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_JARS_FOLDER_PATH, ""));
-			this.k2MainOperationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.KM_LAUNCH_MAIN_OPERATION, ""));
-			this.k2ProjectNameText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.KM_LAUNCH_PROJECT, ""));
-			this.k2PortText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.KM_LAUNCH_PORT, ""));
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -100,27 +93,7 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				KevoreeLauncherConfigurationConstants.LAUNCH_MODEL_PATH,
 				this.modelLocationText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.LAUNCH_SELECTED_LANGUAGE,
-				this.languageCombo.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.LAUNCH_MM_PATH,
-				this.metamodelLocationText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.LAUNCH_CCSL_FILE_PATH,
-				this.ccslLocationText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.LAUNCH_JARS_FOLDER_PATH,
-				this.jarFolderLocationText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.KM_LAUNCH_MAIN_OPERATION,
-				this.k2MainOperationText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.KM_LAUNCH_PROJECT,
-				this.k2ProjectNameText.getText());
-		configuration.setAttribute(
-				KevoreeLauncherConfigurationConstants.KM_LAUNCH_PORT,
-				this.k2PortText.getText());
+
 	}
 
 	@Override
@@ -149,7 +122,7 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 	 * @return
 	 */
 	public Composite createModelLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "Model to execute");		
+		createTextLabelLayout(parent, "KevScript to execute");		
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
 		// gd.horizontalSpan = 1;
 		gd.widthHint = GRID_DEFAULT_WIDTH;
@@ -167,6 +140,7 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 				// TODO launch the appropriate selector
 				
 				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+				//dialog.setPattern("*.kevs");
 				if(dialog.open() == Dialog.OK){
 					String modelPath = ((IResource)dialog.getResult()[0]).getFullPath().toPortableString();
 					modelLocationText.setText(modelPath);
@@ -177,123 +151,7 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 		return parent;
 	}
 	
-	/***
-	 * Create the Field where user enters the language used to execute
-	 * 
-	 * @param parent
-	 * @param font
-	 * @return
-	 */
-	public Composite createLanguageLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "xDSML");
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		// gd.horizontalSpan = 1;
-		gd.widthHint = GRID_DEFAULT_WIDTH;
-		// Create the project selector button
 
-		languageCombo = new Combo (parent, SWT.NONE);
-		
-		ArrayList<String> xdsmlNames = new ArrayList<String>();
-		IConfigurationElement[] confElements = Platform.getExtensionRegistry().getConfigurationElementsFor("org.gemoc.gemoc_language_workbench.xdsml");
-		for (int i = 0; i < confElements.length; i++) {
-			xdsmlNames.add(confElements[i].getAttribute("name"));
-		}
-		if(confElements.length == 0){
-			xdsmlNames.add("<No xdml available>");
-		}
-		String[] empty = {};
-		languageCombo.setItems (xdsmlNames.toArray(empty));
-		languageCombo.addModifyListener(fBasicModifyListener);
-		/*languageCombo.addListener (SWT.DefaultSelection, new Listener () {
-			public void handleEvent (Event e) {
-				//System.out.println (e.widget + " - Default Selection");
-				
-				updateLaunchConfigurationDialog();
-			}
-		});*/
-		
-		// button to deal with dynamic language creation and provisionning		
-		Button projectLocationButton = createPushButton(parent, "Dynamic Language Variants...", null);
-		projectLocationButton.setEnabled(false);
-		projectLocationButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent evt) {
-				//handleModelLocationButtonSelected();
-				// TODO launch the appropriate selector
-				MessageDialog.openWarning(
-						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-						"Dynamic Language Variants",
-						"Action not implemented yet");
-				updateLaunchConfigurationDialog();
-			}
-		});
-		return parent;
-	}
-	
-	/***
-	 * Create the Field where user enters model to execute
-	 * 
-	 * @param parent
-	 * @param font
-	 * @return
-	 */
-	public Composite createPrototypeLayout(Composite parent, Font font) {
-		
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		// gd.horizontalSpan = 1;
-		gd.widthHint = GRID_DEFAULT_WIDTH;
-		
-		createTextLabelLayout(parent, "Metamodel path (*.ecore)");
-		
-		// metamodel location text
-		metamodelLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		metamodelLocationText.setLayoutData(gd);
-		metamodelLocationText.setFont(font);
-		metamodelLocationText.addModifyListener(fBasicModifyListener);
-		
-		// --------------
-		createTextLabelLayout(parent, "CCSL File");
-		// metamodel location text
-		ccslLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		ccslLocationText.setLayoutData(gd);
-		ccslLocationText.setFont(font);
-		ccslLocationText.addModifyListener(fBasicModifyListener);
-		
-		// --------------
-		createTextLabelLayout(parent, "jar folder");
-		jarFolderLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		jarFolderLocationText.setLayoutData(gd);
-		jarFolderLocationText.setFont(font);
-		jarFolderLocationText.addModifyListener(fBasicModifyListener);
-		
-		createSeparator(parent, 2);
-		
-		// --------------
-		createTextLabelLayout(parent, "Kermeta 2 main operation");
-		k2MainOperationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		k2MainOperationText.setLayoutData(gd);
-		k2MainOperationText.setFont(font);
-		k2MainOperationText.addModifyListener(fBasicModifyListener);
-
-		// --------------
-		createTextLabelLayout(parent, "Kermeta 2 project name");
-		k2ProjectNameText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		k2ProjectNameText.setLayoutData(gd);
-		k2ProjectNameText.setFont(font);
-		k2ProjectNameText.addModifyListener(fBasicModifyListener);
-
-		
-		// --------------
-		createTextLabelLayout(parent, "Kermeta 2 port");
-		k2PortText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		k2PortText.setLayoutData(gd);
-		k2PortText.setFont(font);
-		k2PortText.addModifyListener(fBasicModifyListener);
-		
-		
-		return parent;
-	}
-	
-	
 	// -----------------------------------
 	
 	/**

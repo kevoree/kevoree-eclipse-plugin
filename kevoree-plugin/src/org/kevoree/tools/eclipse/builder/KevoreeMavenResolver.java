@@ -1,10 +1,11 @@
 package org.kevoree.tools.eclipse.builder;
-import org.kevoree.resolver.MavenResolver;
-
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.SortedSet;
+
+import org.kevoree.resolver.MavenResolver;
+
 
 /**
  * Created by gregory.nain on 22/01/2014.
@@ -34,7 +35,7 @@ public class KevoreeMavenResolver {
     	
         return resolver.resolve(group, name, versionAsked, extension, urls);
     }
-
+    
 
 
 }
