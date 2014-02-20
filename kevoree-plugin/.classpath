@@ -7,7 +7,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.basechecker-3.4.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.kevscript-3.4.0.jar" sourcepath="/home/barais/.m2/repository/org/kevoree/org.kevoree.kevscript/3.4.0/org.kevoree.kevscript-3.4.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.log.compat.slf4j-1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.maven.resolver-16.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.maven.resolver-16.jar" sourcepath="/home/barais/.m2/repository/org/kevoree/org.kevoree.maven.resolver/16/org.kevoree.maven.resolver-16-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.tools.ui.editor-3.4.0.jar" sourcepath="/home/barais/.m2/repository/org/kevoree/tools/org.kevoree.tools.ui.editor/3.4.0/org.kevoree.tools.ui.editor-3.4.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.tools.ui.framework-3.4.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.kevoree.tools.ui.kevscript-3.4.0.jar"/>
