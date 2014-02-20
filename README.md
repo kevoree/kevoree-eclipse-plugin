@@ -6,3 +6,4 @@ TODO
 * KevScript Runner
 * WebEditor in eclipse
 * Improve completion on maven repo for kevscript
+* junit test runner

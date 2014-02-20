@@ -5,8 +5,6 @@ import java.io.StringBufferInputStream;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import jsyntaxpane.lexers.KevScriptLexer;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.IDocument;
@@ -15,7 +13,6 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.texteditor.ContentAssistAction;
 import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
-import org.kevoree.kevscript.KevScriptEngine;
 import org.kevoree.kevscript.Parser;
 import org.kevoree.kevscript.Type;
 import org.waxeye.ast.IAST;
