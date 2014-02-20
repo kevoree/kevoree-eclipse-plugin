@@ -2,7 +2,7 @@ kevoree-eclipse-plugin
 ======================
 
 TODO
+* Template for kevscript
 * KevScript Runner
 * WebEditor in eclipse
-* global pom.xml
-
+* Improve completion on maven repo for kevscript

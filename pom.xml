@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.kevoree.eclipse</groupId>
+    <artifactId>root</artifactId>
+    <packaging>pom</packaging>
+    <name>Root Artifact Id for eclipse plugin</name>
+    <version>1.4.0</version>
+
+    <modules>
+        <module>kevoree-archetype</module>
+        <module>kevoree-plugin</module>
+        <module>KevoreeEclipsePluginFeature</module>
+        <module>KevoreeEclipseUpdateSite</module>
+    </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>diversify</id>
+            <url>http://sd-35000.dedibox.fr:8080/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>diversify</id>
+            <url>http://sd-35000.dedibox.fr:8080/archiva/repository/internal/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

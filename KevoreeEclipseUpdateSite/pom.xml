@@ -4,6 +4,7 @@
   <groupId>org.kevoree.eclipse</groupId>
   <artifactId>kevoree-update-site</artifactId>
   <version>3.4.0</version>
+  <packaging>eclipse-update-site</packaging>
 
   <properties>
     <tycho.version>0.18.0</tycho.version>
@@ -182,5 +183,15 @@
     </pluginManagement>
   </build>
 
-  <packaging>eclipse-update-site</packaging>
+    <distributionManagement>
+        <repository>
+            <id>diversify</id>
+            <url>http://sd-35000.dedibox.fr:8080/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>diversify</id>
+            <url>http://sd-35000.dedibox.fr:8080/archiva/repository/internal/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project> 
