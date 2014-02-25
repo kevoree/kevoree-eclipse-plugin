@@ -80,7 +80,11 @@ You will get the log in the console
 
 ![KevoreeProjectCreated](KevoreeCRunner.png)
 
-	6. Other stuffs. (Builder, preferences page)
+	6. Step six. (Manage the runtime system)
+
+You can ow open your chrome based browser (http://kwe.braindead.fr/) and manage your application.
+
+	7. Other stuffs. (Builder, preferences page)
     
 We also provide a specific builder that automatically generate the model when the project changed. 
 
@@ -90,7 +94,7 @@ We also create a preference page for Kevoree to set the Kevoree version you want
 
 ![KevoreeProjectCreated](KevoreeEclipsePreference.png)
 
-	7. Import a Kevoree project.
+	8. Import a Kevoree project.
     
 If you have to import an existing Kevoree project, you can just import it as an existing maven project and add the Kevoree Nature (right clic on the project, configure -> add Kevoree Nature)
 
