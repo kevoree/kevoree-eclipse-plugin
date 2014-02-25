@@ -37,7 +37,10 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.IRuntimeClasspathEntry;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.kevoree.resolver.MavenResolver;
+import org.kevoree.tools.eclipse.Activator;
+import org.kevoree.tools.eclipse.preferences.PreferenceConstants;
 
 public class KevoreeBuilder extends IncrementalProjectBuilder {
 
@@ -213,9 +216,12 @@ public class KevoreeBuilder extends IncrementalProjectBuilder {
 	protected void fullBuild(final IProgressMonitor monitor)
 			throws CoreException {
 		try {
+			IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+			String version =store.getString(PreferenceConstants.P_STRING);
+			
 			File kevoreeAnnotator = KevoreeMavenResolver.resolve(
 					"org.kevoree.tools",
-					"org.kevoree.tools.annotator.standalone", "3.4.0", "jar");
+					"org.kevoree.tools.annotator.standalone", version, "jar");
 
 			// parameters.setMainClass("org.kevoree.tools.annotator.App");
 			// parameters.getProgramParametersList().add(CompilerPaths.getModuleOutputDirectory(module,
@@ -279,7 +285,7 @@ public class KevoreeBuilder extends IncrementalProjectBuilder {
 			
 			IPath bootstrapPath1 = new Path(KevoreeMavenResolver.resolve(
 					"org.kevoree.platform", "org.kevoree.platform.standalone",
-					"3.4.0", "jar").getAbsolutePath());
+					version, "jar").getAbsolutePath());
 			IRuntimeClasspathEntry bootstrapEntry1 = JavaRuntime
 					.newArchiveRuntimeClasspathEntry(bootstrapPath1);
 			bootstrapEntry1

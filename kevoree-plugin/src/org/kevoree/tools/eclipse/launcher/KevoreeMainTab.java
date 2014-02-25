@@ -1,6 +1,7 @@
 package org.kevoree.tools.eclipse.launcher;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
@@ -16,26 +17,21 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ResourceListSelectionDialog;
 import org.kevoree.tools.eclipse.Activator;
 
 public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 
 
 	protected Text modelLocationText;
-	protected Combo languageCombo;
+	protected Text projectLocationText;
+	protected Text nodeNameText;
 
-	protected Text metamodelLocationText;
-	protected Text ccslLocationText;
-	private Text jarFolderLocationText;
-	private Text k2MainOperationText;
-	private Text k2ProjectNameText;
-	private Text k2PortText;
 	
 	public int GRID_DEFAULT_WIDTH = 200;
 	
@@ -78,6 +74,8 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			this.modelLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.LAUNCH_MODEL_PATH, ""));
+			this.projectLocationText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.KEVSCRIPT_LAUNCH_PROJECT, ""));
+			this.nodeNameText.setText(configuration.getAttribute(KevoreeLauncherConfigurationConstants.KEVSCRIPT_LAUNCH_NODENAME, ""));
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -88,6 +86,12 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				KevoreeLauncherConfigurationConstants.LAUNCH_MODEL_PATH,
 				this.modelLocationText.getText());
+		configuration.setAttribute(
+				KevoreeLauncherConfigurationConstants.KEVSCRIPT_LAUNCH_PROJECT,
+				this.projectLocationText.getText());
+		configuration.setAttribute(
+				KevoreeLauncherConfigurationConstants.KEVSCRIPT_LAUNCH_NODENAME,
+				this.nodeNameText.getText());
 
 	}
 
@@ -117,12 +121,38 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 	 * @return
 	 */
 	public Composite createModelLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "KevScript to execute");		
+		createTextLabelLayout(parent, "Project");		
+		
+		
+		createTextLabelLayout(parent, "Project");		
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
 		// gd.horizontalSpan = 1;
 		gd.widthHint = GRID_DEFAULT_WIDTH;
+
+		projectLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
+		projectLocationText.setLayoutData(gd);
+		projectLocationText.setFont(font);
+		projectLocationText.addModifyListener(fBasicModifyListener);
+		Button projectLocationButton1 = createPushButton(parent, "Browse", null);
+		projectLocationButton1.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent evt) {
+				//handleModelLocationButtonSelected();
+				// TODO launch the appropriate selector
+				
+				ResourceListSelectionDialog dialog = new ResourceListSelectionDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), ResourcesPlugin.getWorkspace().getRoot(), IResource.PROJECT);
+				if(dialog.open() == Dialog.OK){
+					String projectPath = ((IResource)dialog.getResult()[0]).getFullPath().toPortableString();
+					projectLocationText.setText(projectPath);
+					updateLaunchConfigurationDialog();
+				}				
+			}
+		});
+
+		
+		createTextLabelLayout(parent, "KevScript to execute");		
 		// Create the project selector button
 
+		
 		// Project location text
 		modelLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
 		modelLocationText.setLayoutData(gd);
@@ -143,6 +173,25 @@ public class KevoreeMainTab extends AbstractLaunchConfigurationTab {
 				}				
 			}
 		});
+
+		createTextLabelLayout(parent, "Node name to start");		
+		// Create the project selector button
+
+		
+		// Project location text
+		nodeNameText = new Text(parent, SWT.SINGLE | SWT.BORDER);
+		nodeNameText.setLayoutData(gd);
+		nodeNameText.setFont(font);
+		nodeNameText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				updateLaunchConfigurationDialog();
+				
+			}
+		});
+
+		
 		return parent;
 	}
 	

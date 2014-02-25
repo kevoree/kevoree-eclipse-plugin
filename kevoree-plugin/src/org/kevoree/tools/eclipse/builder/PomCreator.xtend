@@ -1,5 +1,9 @@
 package org.kevoree.tools.eclipse.builder
 
+import org.eclipse.jface.preference.IPreferenceStore
+import org.kevoree.tools.eclipse.Activator
+import org.kevoree.tools.eclipse.preferences.PreferenceConstants
+
 class PomCreator {
 	
 	def static String getKevs(String projectname){
@@ -16,6 +20,10 @@ attach node0 sync
 		}
 	
 	def static String getPom(String projectname){
+					val store = Activator.getDefault().getPreferenceStore();
+			val version =store.getString(PreferenceConstants.P_STRING);
+		
+		
 		val template = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,7 +36,7 @@ attach node0 sync
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <xtend.version>2.5.0</xtend.version>
-	    <kevoree.version>3.4.0</kevoree.version>
+	    <kevoree.version>«version»</kevoree.version>
     </properties>
 
     <dependencies>

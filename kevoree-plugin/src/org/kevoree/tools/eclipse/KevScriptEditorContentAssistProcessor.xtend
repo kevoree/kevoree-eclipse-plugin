@@ -41,7 +41,7 @@ class KevScriptEditorContentAssistProcessor implements
 			{
 				proposals = buildProposals(suggestions, currWord,
 						documentOffset - currWord.length());
-				lastError = null;
+				lastError = null;	
 			}
 			return proposals;
 		} catch (Exception e) {
