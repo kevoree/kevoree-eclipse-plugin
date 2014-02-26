@@ -54,9 +54,6 @@ public class MarkingErrorHandler
 
 		int position = e.getPosition();
 		
-//		System.err.println(lineNumber + " "+ columnNumber + " " + errorMessage + " "+position + e);
-
-
 		KevScriptValidationError validationError = new KevScriptValidationError();
 		validationError.setLineNumber(lineNumber);
 		validationError.setColumnNumber(columnNumber);

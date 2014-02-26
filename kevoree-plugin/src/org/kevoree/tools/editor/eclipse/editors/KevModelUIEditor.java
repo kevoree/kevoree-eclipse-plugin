@@ -30,7 +30,6 @@ public class KevModelUIEditor extends EditorPart implements IResourceChangeListe
 		
 	}
 
-
 	@Override
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
