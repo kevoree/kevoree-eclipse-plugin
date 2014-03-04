@@ -108,6 +108,20 @@ attach node0 sync
 			</plugin>
 		</plugins>
 	</build>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>snap</id>
+			<snapshots><enabled>true</enabled></snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<repositories>
+		<repository>
+			<id>snap1</id>
+			<snapshots><enabled>true</enabled></snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</repository>
+	</repositories>	
 </project>
 		
 		'''
