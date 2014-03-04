@@ -111,12 +111,9 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 							+ " -Dnode.name=" + nodeName);
 
 			File jdkHome = jre.getInstallLocation();
-			IPath toolsPath = new Path(jdkHome.getAbsolutePath()).append("lib")
-					.append("tools.jar");
-			IRuntimeClasspathEntry toolsEntry = JavaRuntime
-					.newArchiveRuntimeClasspathEntry(toolsPath);
-			toolsEntry
-					.setClasspathProperty(IRuntimeClasspathEntry.USER_CLASSES);
+			//IPath toolsPath = new Path(jdkHome.getAbsolutePath()).append("lib").append("tools.jar");
+			//IRuntimeClasspathEntry toolsEntry = JavaRuntime.newArchiveRuntimeClasspathEntry(toolsPath);
+			//toolsEntry.setClasspathProperty(IRuntimeClasspathEntry.USER_CLASSES);
 
 			IPath bootstrapPath = new Path(kevoreeAnnotator.getAbsolutePath());
 			IRuntimeClasspathEntry bootstrapEntry = JavaRuntime
@@ -143,7 +140,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 					.newRuntimeContainerClasspathEntry(systemLibsPath,
 							IRuntimeClasspathEntry.STANDARD_CLASSES);
 			List classpath = new ArrayList();
-			classpath.add(toolsEntry.getMemento());
+			//classpath.add(toolsEntry.getMemento());
 			classpath.add(bootstrapEntry.getMemento());
 			classpath.add(bootstrapEntry1.getMemento());
 			classpath.add(bootstrapEntry2.getMemento());
