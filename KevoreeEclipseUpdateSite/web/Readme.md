@@ -27,7 +27,7 @@ Basic useful feature list:
 
 	1. First Step (Install the plugin)
  
- Add an update site in Eclipse (http://eclipse.kevoree.org)
+ Add an update site in Eclipse (http://coreff.kevoree.org)
  
  ![KevoreeProjectCreated](https://raw.github.com/kevoree/kevoree-eclipse-plugin/master/KevoreeEclipseUpdateSite/web/KevoreeInstallPlugin.png)
 
