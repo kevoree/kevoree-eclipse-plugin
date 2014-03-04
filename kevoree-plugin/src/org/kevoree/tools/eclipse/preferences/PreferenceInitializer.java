@@ -18,7 +18,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_STRING,
-				"3.4.0");
+				"3.4.2-SNAPSHOT");
 	}
 
 }

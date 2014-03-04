@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.kevoree.eclipse</groupId>
   <artifactId>kevoree-eclipse-plugin</artifactId>
-  <version>3.4.0</version>
+  <version>3.4.2-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 
   <properties>
@@ -12,8 +12,8 @@
     <kepler-repo.url>http://download.eclipse.org/releases/kepler/</kepler-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.5.0</xtend.version>
-	    <kevoree.version>3.4.0</kevoree.version>
+        <xtend.version>2.5.2</xtend.version>
+	    <kevoree.version>3.4.2-SNAPSHOT</kevoree.version>
     
   </properties>
 
@@ -39,22 +39,40 @@
 		<dependency>
         <groupId>org.kevoree.tools</groupId>
 		 <artifactId>org.kevoree.tools.ui.editor</artifactId>
-   	    <version>3.4.0</version>
+   	    <version>3.4.2-SNAPSHOT</version>
          <scope>runtime</scope>
 		</dependency>  
         
     </dependencies>
 
 
-  <repositories>
+
+	<repositories>
+		<repository>
+			<id>snap1</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</repository>
     <repository>
       <id>kepler</id>
       <url>${kepler-repo.url}</url>
       <layout>p2</layout>
     </repository>
-  </repositories>
+	</repositories>
+
+
+
 
   <pluginRepositories>
+		<pluginRepository>
+			<id>snap</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
     <pluginRepository>
       <id>kepler</id>
       <url>${kepler-repo.url}</url>
@@ -277,7 +295,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
 
     <distributionManagement>
         <repository>

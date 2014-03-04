@@ -15,7 +15,7 @@ public class KevoreeMavenResolver {
     private static Set<String> urls = new HashSet<String>();
     static {
         urls.add("http://repo1.maven.org/maven2/");
-        //urls.add("http://oss.sonatype.org/content/groups/public/");
+        urls.add("http://oss.sonatype.org/content/groups/public/");
     }
 
     protected static final MavenResolver resolver = new MavenResolver();
