@@ -8,8 +8,8 @@
 	<name>kervoree-xtend-quickstart</name>
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.5.0</xtend.version>
-	    <kevoree.version>3.4.0</kevoree.version>
+        <xtend.version>2.5.2</xtend.version>
+	    <kevoree.version>3.4.2-SNAPSHOT</kevoree.version>
     </properties>
 
     <dependencies>
@@ -81,5 +81,25 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>snap</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<repositories>
+		<repository>
+			<id>snap1</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+
+		</repository>
+	</repositories>
 </project>
 
