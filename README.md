@@ -1,12 +1,3 @@
-Title: Kevoree Eclipse plugin
-Date: 2014-02-25 10:20
-Modified: 2014-02-25 10:20
-Category: Kevoree tool
-Tags: pelican, publishing
-Slug: my-super-post
-Authors: Olivier Barais
-Summary: Documentation for the Kevoree eclipse plugin
-
 #  Kevoree Eclipse Plugin
 
 Basic useful feature list:
