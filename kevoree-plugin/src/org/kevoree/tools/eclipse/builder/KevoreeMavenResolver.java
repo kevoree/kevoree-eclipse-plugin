@@ -20,16 +20,7 @@ public class KevoreeMavenResolver {
 
     protected static final MavenResolver resolver = new MavenResolver();
 
-    public static synchronized SortedSet<String> getAllRuntimeVersions() {
 
-        try {
-            SortedSet<String> versions = resolver.listVersion("org.kevoree.platform", "org.kevoree.platform.standalone", "jar", urls);
-            return versions;
-        }catch(StackOverflowError e){
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     public static File resolve(String group, String name, String versionAsked, String extension) {
     	

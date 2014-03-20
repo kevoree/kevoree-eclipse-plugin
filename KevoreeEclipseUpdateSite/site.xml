@@ -3,7 +3,7 @@
    <description name="Kevoree Update Site" url="http://www.kevoree.org/eclipse">
       This is the update site for the Kevoree Eclipse Plugin
    </description>
-   <feature url="features/KevoreeEclipsePluginFeature_3.4.2.qualifier.jar" id="KevoreeEclipsePluginFeature" version="3.4.2.qualifier">
+   <feature url="features/KevoreeEclipsePluginFeature_3.5.4.jar" id="KevoreeEclipsePluginFeature" version="3.5.4">
       <category name="Kevoree"/>
    </feature>
    <category-def name="Kevoree" label="Kevoree"/>
