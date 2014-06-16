@@ -108,7 +108,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 		// classesDirectory, "org.kevoree.platform.standalone.test.App"};
 		workingCopy.setAttribute(
 				ATTR_VM_ARGUMENTS,
-				"-Dmodel.debug.port=9080 -Dnode.bootstrap="
+				"-Dkevoree.dev=true -Dmodel.debug.port=9080 -Dnode.bootstrap="
 						+ ResourcesPlugin.getWorkspace().getRoot()
 								.getFile(new Path(modelPath)).getRawLocation()
 								.toOSString() + " -Dnode.name=" + nodeName);

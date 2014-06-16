@@ -106,7 +106,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			// classPathBuf.toString(), "org.kevoree.tools.annotator.App",
 			// classesDirectory, "org.kevoree.platform.standalone.test.App"};
 			workingCopy.setAttribute(ATTR_VM_ARGUMENTS,
-					"-Dmodel.debug.port=9080 -Dnode.bootstrap="
+					"-Dkevoree.dev=true -Dmodel.debug.port=9080 -Dnode.bootstrap="
 							+ file.getRawLocation().toOSString()
 							+ " -Dnode.name=" + nodeName);
 
@@ -286,7 +286,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			// classPathBuf.toString(), "org.kevoree.tools.annotator.App",
 			// classesDirectory, "org.kevoree.platform.standalone.test.App"};
 			workingCopy.setAttribute(ATTR_VM_ARGUMENTS,
-					"-Dmodel.debug.port=9080 -Dnode.bootstrap="
+					"-Dkevoree.dev=true -Dmodel.debug.port=9080 -Dnode.bootstrap="
 							+ file.getRawLocation().toOSString()
 							+ " -Dnode.name=" + nodeName);
 
