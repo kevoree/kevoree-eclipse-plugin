@@ -2,7 +2,6 @@ package org.kevoree.tools.eclipse.builder;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
 
 import org.kevoree.resolver.MavenResolver;
 

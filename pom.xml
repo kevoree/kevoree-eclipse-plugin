@@ -6,7 +6,7 @@
     <artifactId>root</artifactId>
     <packaging>pom</packaging>
     <name>Root Artifact Id for eclipse plugin</name>
-    <version>3.5.4</version>
+    <version>3.6.8</version>
 
     <properties>
         <tycho.version>0.19.0</tycho.version>
@@ -14,8 +14,8 @@
         <kepler-repo.url>http://download.eclipse.org/releases/kepler/</kepler-repo.url>
         <tycho-repo.url>http://download.eclipse.org/eclipse/updates/4.3</tycho-repo.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.5.2</xtend.version>
-        <kevoree.version>3.5.4</kevoree.version>
+        <xtend.version>2.6.1</xtend.version>
+        <kevoree.version>3.6.8</kevoree.version>
     </properties>
 
     <modules>
@@ -60,5 +60,11 @@
             <layout>p2</layout>
         </repository>
     </repositories>
+	<pluginRepositories>
+	  <pluginRepository>
+    <id>central</id>
+    <url>http://repo1.maven.org/maven2/</url>
+  </pluginRepository>
+</pluginRepositories>
 
 </project>

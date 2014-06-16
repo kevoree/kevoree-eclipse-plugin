@@ -2,7 +2,7 @@
 <feature
       id="KevoreeEclipsePluginFeature"
       label="KevoreeEclipsePluginFeature"
-      version="3.5.4"
+      version="3.6.8"
       provider-name="Kevoree Team">
 
    <description url="http://www.kevoree.org">

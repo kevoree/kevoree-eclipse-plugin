@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kevoree.eclipse</groupId>
     <artifactId>kevoree-eclipse-plugin</artifactId>
-    <version>3.5.4</version>
+    <version>3.6.8</version>
     <packaging>eclipse-plugin</packaging>
 
     <parent>
         <groupId>org.kevoree.eclipse</groupId>
         <artifactId>root</artifactId>
-        <version>3.5.4</version>
+        <version>3.6.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -25,6 +25,11 @@
             <artifactId>org.kevoree.tools.ui.editor</artifactId>
             <version>${kevoree.version}</version>
         </dependency>
+	<dependency>
+	  <groupId>org.eclipse.xtend</groupId>
+	  <artifactId>org.eclipse.xtend.core</artifactId>
+	  <version>2.6.1</version>
+	</dependency>
     </dependencies>
 
     <build>
