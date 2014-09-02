@@ -8,3 +8,4 @@ target/
 .idea/
 .idea
 generated-sources/
+/.metadata/

@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kevoree.eclipse</groupId>
     <artifactId>KevoreeEclipsePluginFeature</artifactId>
-    <version>3.6.8</version>
+    <version>4.0.1</version>
     <packaging>eclipse-feature</packaging>
 
     <parent>
         <groupId>org.kevoree.eclipse</groupId>
         <artifactId>root</artifactId>
-        <version>3.6.8</version>
+        <version>4.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
