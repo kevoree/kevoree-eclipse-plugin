@@ -73,7 +73,7 @@ You will get the log in the console
 
 	6. Step six. (Manage the runtime system)
 
-You can ow open your chrome based browser (http://kwe.braindead.fr/) and manage your application.
+You can ow open your chrome based browser (http://editor.kevoree.org/) and manage your application.
 
 	7. Other stuffs. (Builder, preferences page)
     

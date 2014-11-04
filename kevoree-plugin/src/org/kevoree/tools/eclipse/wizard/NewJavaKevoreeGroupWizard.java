@@ -7,9 +7,9 @@ package org.kevoree.tools.eclipse.wizard;
 public class NewJavaKevoreeGroupWizard extends AbstractNewKevoreeElementWizard {
 public static final String TITLE = "Kevoree Group Java"; //$NON-NLS-1$
 
-	public NewJavaKevoreeGroupWizard() {
-		
+	public NewJavaKevoreeGroupWizard( ) {
+		 
 		super(new NewJavaKevoreeGroupWizardPage(), TITLE);
-	}
+	} 
 	
 }

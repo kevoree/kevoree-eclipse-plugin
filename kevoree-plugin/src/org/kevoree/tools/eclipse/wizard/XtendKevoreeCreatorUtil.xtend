@@ -39,7 +39,8 @@ import org.kevoree.annotation.Stop
 import org.kevoree.api.KevScriptService
 import org.kevoree.api.ModelService
 import org.kevoree.api.Port
-import org.kevoree.cloner.DefaultModelCloner
+import org.kevoree.factory.DefaultKevoreeFactory
+import org.kevoree.factory.KevoreeFactory
 
 @ComponentType
 class «componentName» {
@@ -70,8 +71,7 @@ class «componentName» {
 	@Property
 	private int myparameter = 2000;
 
-	//Init the variables (from inside a component)
-	var cloner = new DefaultModelCloner();
+	var KevoreeFactory fact = new DefaultKevoreeFactory()
 
 	@KevoreeInject
 	private KevScriptService kevScriptService;
@@ -83,7 +83,7 @@ class «componentName» {
 		//Get the current Model
 		var model = modelService.getCurrentModel();
 		// Clone the model to make it changeable
-		var ContainerRoot localModel = cloner.clone(model.getModel()) as ContainerRoot
+		var ContainerRoot localModel = fact.createModelCloner.clone(model.getModel()) as ContainerRoot
 		
 		
 		// Apply the script on the current model, to get a new configuration
@@ -103,7 +103,6 @@ class «componentName» {
 	
 	def String createKevoreeGroupXtend(String groupName){
 		val template = '''
-import org.kevoree.ContainerRoot
 import org.kevoree.annotation.GroupType
 import org.kevoree.annotation.KevoreeInject
 import org.kevoree.annotation.Library
@@ -111,9 +110,9 @@ import org.kevoree.annotation.Start
 import org.kevoree.annotation.Stop
 import org.kevoree.api.ModelService
 import org.kevoree.api.handler.ModelListener
+import org.kevoree.api.handler.UpdateContext
 
 @GroupType
-@Library(name="Java")
 class «groupName» implements ModelListener {
 
 	@KevoreeInject
@@ -127,25 +126,25 @@ class «groupName» implements ModelListener {
 	def void stop() {
 	}
 
-	override def boolean preUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {
+	override def boolean preUpdate(UpdateContext context) {
 		return true;
 	}
 
-	override def boolean initUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {
+	override def boolean initUpdate(UpdateContext context) {
 		return true;
 	}
 
-	override def boolean afterLocalUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {
+	override def boolean afterLocalUpdate(UpdateContext context) {
 		return true;
 	}
 
 	override def void modelUpdated() {
 	}
 
-	override def void preRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {
+	override def void preRollback(UpdateContext context) {
 	}
 
-	override def void postRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {
+	override def void postRollback(UpdateContext context) {
 	}
 
 }
@@ -165,7 +164,6 @@ import org.kevoree.api.ChannelDispatch
 import org.kevoree.api.Port
 
 @ChannelType
-@Library(name = "Java")
 public class «channelName» implements ChannelDispatch {
 
     @KevoreeInject
@@ -188,7 +186,6 @@ public class «channelName» implements ChannelDispatch {
 import org.kevoree.annotation.*;
 
 @ComponentType
-@Library(name = "Java")
 public class «componentName» {
 
     @Param(defaultValue = "Default Content")
@@ -229,9 +226,10 @@ public class «componentName» {
 		val template = '''
 import org.kevoree.annotation.*;
 import org.kevoree.api.handler.ModelListener;
+import org.kevoree.api.handler.UpdateContext;
+import org.kevoree.api.ModelService;
 
 @GroupType
-@Library(name = "Java")
 public class «groupName» implements ModelListener {
 
     @KevoreeInject
@@ -243,17 +241,17 @@ public class «groupName» implements ModelListener {
     @Stop
     public void stop() {}
 
-    public boolean preUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+    public boolean preUpdate(UpdateContext context) {return true;}
 
-    public boolean initUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+    public boolean initUpdate(UpdateContext context) {return true;}
 
-    public boolean afterLocalUpdate(ContainerRoot currentModel, ContainerRoot proposedModel) {return true;}
+    public boolean afterLocalUpdate(UpdateContext context) {return true;}
 
     public void modelUpdated() {}
 
-    public void preRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {}
+    public void preRollback(UpdateContext context) {}
 
-    public void postRollback(ContainerRoot currentModel, ContainerRoot proposedModel) {}
+    public void postRollback(UpdateContext context) {}
 
 }
 		'''

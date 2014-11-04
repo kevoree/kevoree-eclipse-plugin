@@ -12,7 +12,7 @@ public class NewJavaKevoreeGroupWizardPage extends AbstractNewKevoreeElementWiza
 		super(CLASS_TYPE, NewJavaKevoreeGroupWizard.TITLE, ".java");
 		this.setTitle(NewJavaKevoreeGroupWizard.TITLE);
 		this.setDescription(Messages.JAVA_KEVOREE_GROUP_WIZARD_DESCRIPTION);
-	}
+	} 
 
 	public void createControl(Composite parent) {
 		setControl(createCommonControls(parent));

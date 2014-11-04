@@ -53,6 +53,7 @@
          name="newKevoreeClass"
          point="org.eclipse.ui.newWizards">
       <category
+      
             id="org.eclipse.kevoree.ide.wizards"
             name="Kevoree">
       </category>

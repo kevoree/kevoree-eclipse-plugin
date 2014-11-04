@@ -25,12 +25,14 @@ class KevScriptEditorContentAssistProcessor implements
 		var currOffset = documentOffset - 1;
 		try {
 			var currWord = "";
-			var char currChar;
+			var char currChar = document
+							.getChar(currOffset);
 			while (currOffset > 0
-					&& !(Character.isWhitespace(currChar = document
-							.getChar(currOffset)) || currChar == ';')) {
+					&& !(Character.isWhitespace(currChar ) || currChar == ';')) {
 				currWord = currChar + currWord;
 				currOffset = currOffset-1;
+				currChar = document
+							.getChar(currOffset);
 			}
 			System.err.println(currWord);
 			val cur = currWord

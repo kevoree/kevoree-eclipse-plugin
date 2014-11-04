@@ -13,7 +13,6 @@ public class RunAsKevScriptAction implements org.eclipse.ui.IObjectActionDelegat
 	@Override
 	public void run(IAction action) {
 		System.out.println("I'm running");
-		
 		ElementListSelectionDialog dialog = 
 			     new ElementListSelectionDialog(PlatformUI.getWorkbench().
 			                getActiveWorkbenchWindow().getShell(), new LabelProvider());

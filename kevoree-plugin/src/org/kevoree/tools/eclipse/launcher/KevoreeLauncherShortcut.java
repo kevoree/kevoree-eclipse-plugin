@@ -211,7 +211,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			try {
 				PlatformUI.getWorkbench().getBrowserSupport()
 						.getExternalBrowser()
-						.openURL(new URL("http://kwe.braindead.fr/"));
+						.openURL(new URL("http://editor.kevoree.org/"));
 				// PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -394,7 +394,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			try {
 				PlatformUI.getWorkbench().getBrowserSupport()
 						.getExternalBrowser()
-						.openURL(new URL("http://kwe.braindead.fr/?host=127.0.0.1&port=9000"));
+						.openURL(new URL("http://editor.kevoree.org/?host=127.0.0.1&port=9000"));
 				// PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
