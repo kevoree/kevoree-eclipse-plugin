@@ -32,7 +32,7 @@
 	   <super type="org.eclipse.core.resources.textmarker"/>
 	   <persistent value="true"/>
 	</extension>   
-
+<!--
 <extension point="org.eclipse.ui.popupMenus"> 
 <objectContribution 
       id="org.eclipse.ui.articles.action.contribution.popup.runkevs"
@@ -47,7 +47,7 @@
       </action> 
    </objectContribution> 
 </extension>
-   
+   -->
    <extension
          point="org.eclipse.ui.newWizards">
       <category

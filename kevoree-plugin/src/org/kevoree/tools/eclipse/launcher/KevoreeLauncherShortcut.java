@@ -1,8 +1,5 @@
 package org.kevoree.tools.eclipse.launcher;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -11,20 +8,26 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
 
 public class KevoreeLauncherShortcut implements ILaunchShortcut {
 
 	@Override
 	public void launch(ISelection selection, String mode) {
-		try {
 			org.eclipse.jface.viewers.TreeSelection sel = (TreeSelection) selection;
 			IFile file = (IFile) sel.getFirstElement();
 			IProject activeProject = file.getProject();
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			try {
+				if (activeProject.hasNature("org.nodeclipse.ui.NodeNature"))
+					KevoreeLauncher.runGruntGoal(activeProject,file.getRawLocation().toOSString(), nodeName,false);
+				else
+					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 
 			/*try {
@@ -35,15 +38,11 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}*/
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 	}
 
 	@Override
 	public void launch(IEditorPart editor, String mode) {
-		try {
 
 			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 			IFile file = input.getFile();
@@ -51,7 +50,15 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			try {
+				if (activeProject.hasNature("org.nodeclipse.ui.NodeNature"))
+					KevoreeLauncher.runGruntGoal(activeProject,file.getRawLocation().toOSString(), nodeName,false);
+				else
+					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 			/*try {
@@ -62,9 +69,6 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}*/
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 	}
 
