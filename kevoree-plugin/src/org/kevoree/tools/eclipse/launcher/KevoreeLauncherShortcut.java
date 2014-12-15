@@ -24,7 +24,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "clean install kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
 		
 
 			try {
@@ -51,7 +51,7 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "clean install kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
 			
 			
 			try {

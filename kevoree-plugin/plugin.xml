@@ -327,6 +327,49 @@
 	        id="org.kevoree.kevoree_workbench.ui.KevoreeLauncherTabGroupID">
 	    </launchConfigurationTabGroup>
 	</extension>
+   	<extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="org.kevoree.tools.eclipse.launcher.KevoreeCompilerLauncherShortcut"
+            icon="icons/kevs.png"
+            id="org.kevoree.kevoree_workbench.ui.CompilerRunnerKevoree"
+            label="Kevoree"
+            modes="run, debug">
+         <configurationType
+               id="org.kevoree.kevoree_workbench.ui.KevoreeLauncherID">
+         </configurationType>
+         <contextualLaunch>
+            <enablement>
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     operator="or">
+                  <or>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.kevs">
+                     </test>
+                     <adapt type="org.eclipse.core.resources.IResource">
+                     	<test
+                           property="org.eclipse.core.resources.projectNature"
+                           value="org.kevoree.tools.eclipse.KevScriptEditor">
+                     	</test>
+                     </adapt>
+                  </or>
+               </iterate>
+            </enablement>
+            <contextLabel
+                  label="Compile and Run as Kevoree Script"
+                  mode="run">
+            </contextLabel>
+            <contextLabel
+                  label="Compile and Debug as Kevoree Script"
+                  mode="debug">
+            </contextLabel>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
 	<extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
@@ -360,16 +403,18 @@
                </iterate>
             </enablement>
             <contextLabel
-                  label="Run as Kevoree Script"
+                  label="Quick Run as Kevoree Script"
                   mode="run">
             </contextLabel>
             <contextLabel
-                  label="Debug as Kevoree Script"
+                  label="Quick Debug as Kevoree Script"
                   mode="debug">
             </contextLabel>
          </contextualLaunch>
       </shortcut>
    </extension>
+   
+   
  <extension
        point="org.eclipse.ui.preferencePages">
     <page
