@@ -53,7 +53,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 		System.err.println(modelPath);
 		System.err.println(nodeName);
 		
-		runMavenGoal(getProject(projectPath), "compile kev:run",ResourcesPlugin.getWorkspace().getRoot()
+		runMavenGoal(getProject(projectPath), "clean install kev:run",ResourcesPlugin.getWorkspace().getRoot()
 				.getFile(new Path(modelPath)).getRawLocation()
 				.toOSString(),nodeName,mode);
 		
