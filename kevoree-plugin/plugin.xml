@@ -55,7 +55,7 @@
             name="Kevoree JS">
       </category>
       <wizard
-            category="org.nodeclipse.ui.wizards.category"
+            category="org.kevoree.js.wizards.category"
             class="org.kevoree.tools.eclipse.wizard.KevoreeJsProjectWizard"
             finalPerspective="org.nodeclipse.ui.perspectives.NodePerspective"
             icon="icons/kevs.png"
