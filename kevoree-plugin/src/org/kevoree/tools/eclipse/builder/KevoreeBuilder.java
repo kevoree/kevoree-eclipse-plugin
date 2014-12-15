@@ -215,7 +215,7 @@ public class KevoreeBuilder extends IncrementalProjectBuilder {
 
 	protected void fullBuild(final IProgressMonitor monitor)
 			throws CoreException {
-		try {
+		/*try {
 			IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 			String version =store.getString(PreferenceConstants.P_STRING);
 			
@@ -311,7 +311,7 @@ public class KevoreeBuilder extends IncrementalProjectBuilder {
 			 * "-Djava.io.tmpdir=\"..\\temp\"");
 			 */
 
-			workingCopy.setAttribute(
+			/*workingCopy.setAttribute(
 					IJavaLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY,"${workspace_loc:"+ getProject().getName()+"}");
 			ILaunchConfiguration configuration = workingCopy.doSave();
 			configuration.launch(ILaunchManager.RUN_MODE,
@@ -325,7 +325,7 @@ public class KevoreeBuilder extends IncrementalProjectBuilder {
 			getProject().accept(new SampleResourceVisitor());
 		} catch (CoreException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/*

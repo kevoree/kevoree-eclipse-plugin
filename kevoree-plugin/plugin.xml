@@ -208,7 +208,7 @@
           project="true">
     </wizard>
  </extension>
-  <extension
+ <!-- <extension
          id="org.kevoree.kevoree_workbench.ui.kevoreeBuilder"
          name="Kevoree Model Builder"
          point="org.eclipse.core.resources.builders">
@@ -218,7 +218,7 @@
                class="org.kevoree.tools.eclipse.builder.KevoreeBuilder">
          </run>
       </builder>
-   </extension>
+   </extension>-->
    <extension
          id="org.kevoree.kevoree_workbench.ui.kevoreeNature"
          name="Kevoree Project Nature"
@@ -228,9 +228,9 @@
                class="org.kevoree.tools.eclipse.builder.KevoreeNature">
          </run>
       </runtime>
-      <builder
+     <!-- <builder
             id="org.kevoree.kevoree_workbench.ui.kevoreeBuilder">
-      </builder>
+      </builder>-->
    </extension>
    <extension
          point="org.eclipse.ui.popupMenus">

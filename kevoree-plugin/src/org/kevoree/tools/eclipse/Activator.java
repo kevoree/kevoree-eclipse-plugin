@@ -20,6 +20,7 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+//		org.kevoree.tools.annotator.App app;
 	}
 
 	/*
