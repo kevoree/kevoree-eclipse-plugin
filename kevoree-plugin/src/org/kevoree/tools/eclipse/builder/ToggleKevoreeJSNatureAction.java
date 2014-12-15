@@ -25,7 +25,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.kevoree.tools.eclipse.Activator;
 
-public class ToggleNatureAction implements IObjectActionDelegate {
+public class ToggleKevoreeJSNatureAction implements IObjectActionDelegate {
 
 	private ISelection selection;
 
@@ -102,45 +102,12 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			//else
 			
 			String NodeNature ="org.nodeclipse.ui.NodeNature";// = org.nodeclipse.ui.nature.NodeNature.NATURE_ID;
-			if(!project.hasNature(JavaCore.NATURE_ID)){
-				description.setNatureIds(new String[] { JavaCore.NATURE_ID });
+			if(!project.hasNature("org.nodeclipse.ui.NodeNature") ){
+				description.setNatureIds(new String[] { "org.nodeclipse.ui.NodeNature" });
 				project.setDescription(description, null);
 			}
 			
 			
-			//  add the maven nature (not removed)
-			if(!project.hasNature(IMavenConstants.NATURE_ID)){
-				
-				final MavenPlugin plugin = MavenPlugin.getDefault();
-			      IFile pom = project.getFile(IMavenConstants.POM_FILE_NAME);
-			      Job job = new Job(Messages.EnableNatureAction_job_enable) {
-			  
-			        protected IStatus run(IProgressMonitor monitor) {
-			          try {
-			            ResolverConfiguration configuration = new ResolverConfiguration();
-			            //configuration.setResolveWorkspaceProjects(workspaceProjects);
-			            //configuration.setActiveProfiles(""); //$NON-NLS-1$
-			  
-			            boolean hasMavenNature = project.hasNature(IMavenConstants.NATURE_ID);
-			  
-			            IProjectConfigurationManager configurationManager = plugin.getProjectConfigurationManager();
-			  
-			            configurationManager.enableMavenNature(project, configuration, new NullProgressMonitor());
-			  
-			            if(!hasMavenNature) {
-			              configurationManager.updateProjectConfiguration(project, monitor);
-			            }
-			          } catch(CoreException ex) {
-
-			          }
-			          return Status.OK_STATUS;
-			        }
-			      };
-			      job.schedule();
-
-			}
-			
-	
 			// Add the nature
 			addAsMainNature(project, KevoreeNature.NATURE_ID);
 						

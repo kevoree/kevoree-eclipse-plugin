@@ -13,7 +13,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 
-public class KevoreeLauncherShortcut implements ILaunchShortcut {
+public class KevoreeCompilerLauncherShortcut implements ILaunchShortcut {
 
 	@Override
 	public void launch(ISelection selection, String mode) {
@@ -24,18 +24,18 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
-		
+			KevoreeLauncher.runMavenGoal(activeProject, "clean install kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+		 
 
-			/*try {
+			try {
 				PlatformUI.getWorkbench().getBrowserSupport()
 						.getExternalBrowser()
 						.openURL(new URL("http://editor.kevoree.org/?host=127.0.0.1&port=9000"));
 				// PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
-			}*/
-		} catch (Exception e) {
+			}
+		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 
@@ -51,18 +51,18 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			
 			String nodeName = "node0";
 
-			KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+			KevoreeLauncher.runMavenGoal(activeProject, "clean install kev:run", file.getRawLocation().toOSString(), nodeName, mode);
 			
 			
-			/*try {
+			try {
 				PlatformUI.getWorkbench().getBrowserSupport()
 						.getExternalBrowser()
 						.openURL(new URL("http://editor.kevoree.org/?host=127.0.0.1&port=9000"));
 				// PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
-			}*/
-		} catch (Exception e) {
+			}
+		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 

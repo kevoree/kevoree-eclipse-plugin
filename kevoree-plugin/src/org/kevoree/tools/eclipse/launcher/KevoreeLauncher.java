@@ -208,13 +208,13 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 		configuration1.launch(ILaunchManager.RUN_MODE,
 				new NullProgressMonitor());
 */
-		try {
+/*		try {
 			PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser()
 					.openURL(new URL("http://editor.kevoree.org/?host=127.0.0.1&port=9000"));
 			// PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(url);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 

@@ -49,6 +49,26 @@
 </extension>
    
    <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.kevoree.js.wizards.category"
+            name="Kevoree JS">
+      </category>
+      <wizard
+            category="org.nodeclipse.ui.wizards.category"
+            class="org.kevoree.tools.eclipse.wizard.KevoreeJsProjectWizard"
+            finalPerspective="org.nodeclipse.ui.perspectives.NodePerspective"
+            icon="icons/kevs.png"
+            id="org.kevoree.ui.wizards.KevoreeProjectWizard"
+            name="Kevoree JS Project"
+            project="true">
+         <description>
+            Create a new Node.js project (or add .project file to an existing project and import)
+         </description>
+      </wizard>
+   </extension>
+   
+   <extension
          id="org.eclipse.kevoree.ide.wizard"
          name="newKevoreeClass"
          point="org.eclipse.ui.newWizards">
@@ -202,9 +222,22 @@
     <wizard
           category="org.eclipse.kevoree.ide.wizards"
           class="org.kevoree.tools.eclipse.wizard.CreateNewKevoreeProject"
+          finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
           icon="icons/kevs.png"
           id="org.kevoree.kevoree_workbench.ui.wizards.CreateNewKevoreeProject"
           name="New Kevoree Project"
+          project="true">
+    </wizard>
+ </extension>
+	 <extension
+       point="org.eclipse.ui.newWizards">
+    <wizard
+          category="org.eclipse.kevoree.ide.wizards"
+          class="org.kevoree.tools.eclipse.wizard.CreateNewKevoreeProjectWithXtend"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+          icon="icons/kevs.png"
+          id="org.kevoree.kevoree_workbench.ui.wizards.CreateNewKevoreeProject1"
+          name="New Kevoree Project With Xtend dependency"
           project="true">
     </wizard>
  </extension>
@@ -283,6 +316,31 @@
 	    </visibility>
       </objectContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="org.kevoree.kevoree_workbench.ui.addnature.contribution">
+         <action
+               class="org.kevoree.tools.eclipse.builder.ToggleKevoreeJSNatureAction"
+               enablesFor="+"
+               icon="icons/kevs.png"
+               id="org.kevoree.kevoree_workbench.ui.addRemoveNatureAction"
+               label="Add Kevoree JS Nature"
+               menubarPath="org.eclipse.ui.projectConfigure/additions">
+         </action>
+         <visibility>
+         <and>
+            <not>
+                <objectState name="projectNature" value="org.kevoree.kevoree_workbench.ui.kevoreeNature"/>
+            </not>
+            <objectClass name="org.eclipse.core.resources.IProject" />
+          </and>
+         </visibility>
+      </objectContribution>
+	</extension>
    <extension
          id="kevoreeProblem"
          name="Kevoree Problem"
@@ -399,7 +457,7 @@
                            value="org.kevoree.tools.eclipse.KevScriptEditor">
                      	</test>
                      </adapt>
-                  </or>
+                  </or>		
                </iterate>
             </enablement>
             <contextLabel

@@ -19,7 +19,7 @@ attach node0 sync
 		return template
 		}
 	
-	def static String getPom(String projectname){
+	def static String getPom(String projectname, boolean xtend){
 					val store = Activator.getDefault().getPreferenceStore();
 			val version =store.getString(PreferenceConstants.P_STRING);
 		
@@ -50,11 +50,13 @@ attach node0 sync
             <artifactId>org.kevoree.api</artifactId>
             <version>${kevoree.version}</version>
         </dependency>
+        «IF xtend »
         		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
 			<version>${xtend.version}</version>
 		</dependency>
+		«ENDIF»
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -83,6 +85,7 @@ attach node0 sync
                     <model>src/main/kevs/main.kevs</model>
                 </configuration>
             </plugin>
+			«IF xtend»
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
@@ -98,6 +101,7 @@ attach node0 sync
 					</execution>
 				</executions>
 			</plugin>
+			«ENDIF»
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
