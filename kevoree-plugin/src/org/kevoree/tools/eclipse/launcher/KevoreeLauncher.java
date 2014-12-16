@@ -185,7 +185,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 					config = type.newInstance(null, "grunt" + launchName);
 					
 					config.setAttribute("org.eclipse.ui.externaltools.ATTR_LOCATION", "${system_path:grunt}");
-					if (compile)
+					if (!compile)
 						config.setAttribute("org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS", "kevoree --node="+nodeName+" --kevscript="+modelPath +" --no-reinstall");
 					else
 						config.setAttribute("org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS", "kevoree --node="+nodeName+" --kevscript="+modelPath);						
