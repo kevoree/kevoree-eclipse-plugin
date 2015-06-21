@@ -8,8 +8,8 @@
 	<name>kervoree-xtend-quickstart</name>
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.6.2</xtend.version>
- 	<kevoree.version>5.1.4</kevoree.version>
+        <xtend.version>2.8.3</xtend.version>
+ 	<kevoree.version>5.2.5</kevoree.version>
     </properties>
 
     <dependencies>

@@ -198,11 +198,20 @@ public class «componentName» {
     org.kevoree.api.Port out;
 
     @Input
-    public String in(Object i) {
+    public void in(Object i) {
         String msg = message+" from "+context.getInstanceName()+"@"+context.getNodeName();
         System.out.println(msg);
-        out.send(msg);
-        return msg;
+        out.send(msg,new Callback() {
+
+			public void onError(Throwable arg0) {
+				// TODO Auto-generated method stub				
+			}
+
+			public void onSuccess(CallbackResult arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
     }
 
     @Start

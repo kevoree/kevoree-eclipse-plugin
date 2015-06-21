@@ -35,7 +35,9 @@ attach node0 sync
 	<name>«projectname»</name>
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.6.2</xtend.version>
+		«IF xtend»
+        <xtend.version>2.8.3</xtend.version>
+		«ENDIF»
 	    <kevoree.version>«version»</kevoree.version>
     </properties>
 
