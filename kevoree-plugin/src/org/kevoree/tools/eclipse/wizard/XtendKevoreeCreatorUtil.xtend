@@ -41,6 +41,7 @@ import org.kevoree.api.ModelService
 import org.kevoree.api.Port
 import org.kevoree.factory.DefaultKevoreeFactory
 import org.kevoree.factory.KevoreeFactory
+import org.eclipse.xtend.lib.annotations.Accessors
 
 @ComponentType
 class «componentName» {
@@ -68,7 +69,7 @@ class «componentName» {
 	private Port simplePort;
 
 	@Param(defaultValue="2000")
-	@Property
+	@Accessors
 	private int myparameter = 2000;
 
 	var KevoreeFactory fact = new DefaultKevoreeFactory()
@@ -105,7 +106,6 @@ class «componentName» {
 		val template = '''
 import org.kevoree.annotation.GroupType
 import org.kevoree.annotation.KevoreeInject
-import org.kevoree.annotation.Library
 import org.kevoree.annotation.Start
 import org.kevoree.annotation.Stop
 import org.kevoree.api.ModelService
@@ -157,7 +157,6 @@ class «groupName» implements ModelListener {
 		val template = '''
 import org.kevoree.annotation.ChannelType
 import org.kevoree.annotation.KevoreeInject
-import org.kevoree.annotation.Library
 import org.kevoree.api.Callback
 import org.kevoree.api.ChannelContext
 import org.kevoree.api.ChannelDispatch
@@ -169,9 +168,9 @@ public class «channelName» implements ChannelDispatch {
     @KevoreeInject
     ChannelContext channelContext;
 	
-	def override  ^dispatch(Object payload, Callback callback) {
+	def override  ^dispatch(String payload, Callback callback) {
 		for (Port p : channelContext.getLocalPorts()) {
-            p.call(payload, callback);
+            p.send(payload, callback);
         }
 	}
 }
@@ -184,6 +183,8 @@ public class «channelName» implements ChannelDispatch {
 		val template = '''
 
 import org.kevoree.annotation.*;
+import org.kevoree.api.*;
+
 
 @ComponentType
 public class «componentName» {
@@ -274,16 +275,15 @@ import org.kevoree.annotation.*;
 import org.kevoree.api.*;
 
 @ChannelType
-@Library(name = "Java")
 public class «channelName» implements ChannelDispatch {
 
     @KevoreeInject
     ChannelContext channelContext;
 
     @Override
-    public void dispatch(final Object payload, final Callback callback) {
+    public void dispatch( String payload,  Callback callback) {
         for (Port p : channelContext.getLocalPorts()) {
-            p.call(payload, callback);
+            p.send(payload, callback);
         }
 	}
 }    
