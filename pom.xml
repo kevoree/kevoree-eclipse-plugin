@@ -6,16 +6,16 @@
     <artifactId>root</artifactId>
     <packaging>pom</packaging>
     <name>Root Artifact Id for eclipse plugin</name>
-    <version>5.2.5</version>
+    <version>5.2.8</version>
 
     <properties>
-        <tycho.version>0.23.0</tycho.version>
-        <tycho-extras.version>0.23.0</tycho-extras.version>
+        <tycho.version>0.24.0</tycho.version>
+        <tycho-extras.version>0.24.0</tycho-extras.version>
         <kepler-repo.url>http://download.eclipse.org/releases/luna/</kepler-repo.url>
         <tycho-repo.url>http://download.eclipse.org/eclipse/updates/4.4</tycho-repo.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.8.3</xtend.version>
-        <kevoree.version>5.2.5</kevoree.version>
+        <xtend.version>2.8.4</xtend.version>
+        <kevoree.version>5.2.8</kevoree.version>
     </properties>
 
     <modules>

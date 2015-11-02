@@ -107,7 +107,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				project.setDescription(description, null);
 			}
 			
-			
+			try{
 			//  add the maven nature (not removed)
 			if(!project.hasNature(IMavenConstants.NATURE_ID)){
 				
@@ -138,6 +138,10 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			      };
 			      job.schedule();
 
+			}
+			}catch (NoClassDefFoundError e){
+				Activator.warn("Problem while adding Kevoree nature to project. "+e.getMessage(), e);
+				return;
 			}
 			
 	

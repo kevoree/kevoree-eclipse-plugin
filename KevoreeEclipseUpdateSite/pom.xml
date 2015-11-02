@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kevoree.eclipse</groupId>
     <artifactId>kevoree-update-site</artifactId>
-    <version>5.2.5</version>
+    <version>5.2.8</version>
     <packaging>eclipse-update-site</packaging>
 
     <parent>
         <groupId>org.kevoree.eclipse</groupId>
         <artifactId>root</artifactId>
-        <version>5.2.5</version>
+        <version>5.2.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -156,7 +156,7 @@
                 							tycho-packaging-plugin
                 						</artifactId>
                 						<versionRange>
-                							[0.23.0,)
+                							[0.24.0,)
                 						</versionRange>
                 						<goals>
                 							<goal>build-qualifier</goal>
