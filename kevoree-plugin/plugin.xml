@@ -12,7 +12,7 @@
             id="org.kevoree.tools.eclipse.KevScriptEditor">
       </editor>
    </extension>
-      <extension
+<!--      <extension
          point="org.eclipse.ui.editors">
       <editor
             name="Kevoree Model UI Editor"
@@ -22,7 +22,7 @@
             class="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor"
             id="org.kevoree.tools.editor.eclipse.editors.KevModelUIEditor">
       </editor>
-   </extension>
+   </extension>-->
 
 	<extension
 	   id="kevscripterror"

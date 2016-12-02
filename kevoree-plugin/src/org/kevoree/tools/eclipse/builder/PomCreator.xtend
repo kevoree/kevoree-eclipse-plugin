@@ -9,11 +9,8 @@ class PomCreator {
 	def static String getKevs(String projectname){
 		val template = '''
 //sample of KevScript configuration
-repo "http://repo1.maven.org/maven2"
-include mvn:org.kevoree.library.java:org.kevoree.library.java.javaNode:release
-include mvn:org.kevoree.library.java:org.kevoree.library.java.ws:release
-add node0 : JavaNode
-add sync : WSGroup
+add node0 : JavaNode/LATEST/LATEST
+add sync : WSGroup/LATEST/LATEST
 attach node0 sync
 		'''
 		return template
@@ -36,7 +33,7 @@ attach node0 sync
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		«IF xtend»
-        <xtend.version>2.8.3</xtend.version>
+        <xtend.version>2.10.0</xtend.version>
 		«ENDIF»
 	    <kevoree.version>«version»</kevoree.version>
     </properties>
@@ -85,6 +82,7 @@ attach node0 sync
                 <configuration>
                     <nodename>node0</nodename>
                     <model>src/main/kevs/main.kevs</model>
+                    <namespace>mynamespace</namespace>
                 </configuration>
             </plugin>
 			«IF xtend»

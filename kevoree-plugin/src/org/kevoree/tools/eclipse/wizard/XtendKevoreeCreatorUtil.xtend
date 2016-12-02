@@ -43,7 +43,7 @@ import org.kevoree.factory.DefaultKevoreeFactory
 import org.kevoree.factory.KevoreeFactory
 import org.eclipse.xtend.lib.annotations.Accessors
 
-@ComponentType
+@ComponentType(version=1,description="")
 class «componentName» {
 	
 	@Start
@@ -162,7 +162,7 @@ import org.kevoree.api.ChannelContext
 import org.kevoree.api.ChannelDispatch
 import org.kevoree.api.Port
 
-@ChannelType
+@ChannelType(version=1,description="")
 public class «channelName» implements ChannelDispatch {
 
     @KevoreeInject
@@ -186,7 +186,7 @@ import org.kevoree.annotation.*;
 import org.kevoree.api.*;
 
 
-@ComponentType
+@ComponentType(version=1,description="")
 public class «componentName» {
 
     @Param(defaultValue = "Default Content")
@@ -239,7 +239,7 @@ import org.kevoree.api.handler.ModelListener;
 import org.kevoree.api.handler.UpdateContext;
 import org.kevoree.api.ModelService;
 
-@GroupType
+@GroupType(version=1,description="")
 public class «groupName» implements ModelListener {
 
     @KevoreeInject
@@ -274,7 +274,7 @@ public class «groupName» implements ModelListener {
 import org.kevoree.annotation.*;
 import org.kevoree.api.*;
 
-@ChannelType
+@ChannelType(version=1,description="")
 public class «channelName» implements ChannelDispatch {
 
     @KevoreeInject

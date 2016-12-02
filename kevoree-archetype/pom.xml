@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kevoree.xtend.tools</groupId>
     <artifactId>kevoree.xtend.archetype</artifactId>
-    <version>5.2.8</version>
+    <version>5.4.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>Create a simple Xtend Kevoree project</name>
     <url>http://kevoree.org</url>
@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.kevoree.eclipse</groupId>
         <artifactId>root</artifactId>
-        <version>5.2.8</version>
+        <version>5.4.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
