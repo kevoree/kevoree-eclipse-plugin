@@ -1,6 +1,5 @@
 package org.kevoree.tools.eclipse.builder
 
-import org.eclipse.jface.preference.IPreferenceStore
 import org.kevoree.tools.eclipse.Activator
 import org.kevoree.tools.eclipse.preferences.PreferenceConstants
 

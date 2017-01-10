@@ -6,6 +6,7 @@ import java.io.InputStream;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -47,9 +48,14 @@ public abstract class AbstractCreateNewKevoreeProject extends Wizard implements 
 		
 		try {
 			final IProject createdProject = this.mainPage.getProjectHandle();
+			final IProjectDescription description = ResourcesPlugin.getWorkspace()
+					.newProjectDescription(this.mainPage.getProjectName());
+
+			description.setLocationURI(this.mainPage.getLocationURI());
+			
 			IWorkspaceRunnable operation = new IWorkspaceRunnable() {
 				 public void run(IProgressMonitor monitor) throws CoreException {
-					 createdProject.create(monitor);
+					 createdProject.create(description,monitor);
 					 createdProject.open(monitor);
 					 createPomFile(createdProject);				 
 					 addKevoreeProjectNature(createdProject);
