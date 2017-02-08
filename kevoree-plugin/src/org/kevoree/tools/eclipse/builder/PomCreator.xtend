@@ -82,6 +82,7 @@ attach node0 sync
                     <!--<nodename>node0</nodename>-->
                     <kevscript>src/main/kevs/main.kevs</kevscript>
                     <namespace>mynamespace</namespace>
+                    <kevoree.version>«version»</kevoree.version>
                 </configuration>
             </plugin>
 			«IF xtend»
