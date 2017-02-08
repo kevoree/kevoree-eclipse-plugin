@@ -22,6 +22,9 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.ILaunchesListener2;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.kevoree.tools.eclipse.Activator;
+import org.kevoree.tools.eclipse.preferences.PreferenceConstants;
 
 public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 
@@ -40,7 +43,10 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 				.getAttribute(
 						KevoreeLauncherConfigurationConstants.KEVSCRIPT_LAUNCH_NODENAME,
 						"");
+		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+		String version =store.getString(PreferenceConstants.P_STRING);
 
+		
 		if (getProject(projectPath).hasNature("org.nodeclipse.ui.NodeNature"))
 			runGruntGoal(getProject(projectPath), ResourcesPlugin.getWorkspace().getRoot()
 					.getFile(new Path(modelPath)).getRawLocation()
@@ -52,7 +58,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 				"clean install kev:run",
 				ResourcesPlugin.getWorkspace().getRoot()
 						.getFile(new Path(modelPath)).getRawLocation()
-						.toOSString(), nodeName, mode);
+						.toOSString(), nodeName, mode,version);
 
 	}
 
@@ -62,7 +68,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 
 	public static void runMavenGoal(final IProject project,
 			final String mavenGoalString, final String modelPath,
-			final String nodeName, final String mode) {
+			final String nodeName, final String mode, final String kevoreeversion) {
 		final ILaunchConfigurationType type = DebugPlugin.getDefault()
 				.getLaunchManager()
 				.getLaunchConfigurationType(MAVEN_LAUNCH_CONFIG_TYPE);
@@ -92,7 +98,7 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 					config.setAttribute("M2_SKIP_TESTS", true);
 					config.setAttribute(ATTR_VM_ARGUMENTS,
 							"-Dkevoree.dev=true -Dmodel.debug.port=9080 -Dnode.bootstrap="
-									+ modelPath + " -Dnode.name=" + nodeName);
+									+ modelPath + " -Dnode.name=" + nodeName + " -Dkevoree.version=" + kevoreeversion);
 
 					ILaunchConfiguration configuration1 = null;
 					configuration1 = config.doSave();

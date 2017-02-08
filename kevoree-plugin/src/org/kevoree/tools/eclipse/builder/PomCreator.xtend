@@ -79,8 +79,8 @@ attach node0 sync
                     </execution>
                 </executions>
                 <configuration>
-                    <nodename>node0</nodename>
-                    <model>src/main/kevs/main.kevs</model>
+                    <!--<nodename>node0</nodename>-->
+                    <kevscript>src/main/kevs/main.kevs</kevscript>
                     <namespace>mynamespace</namespace>
                 </configuration>
             </plugin>

@@ -4,10 +4,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.ui.ILaunchShortcut;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.kevoree.tools.eclipse.Activator;
+import org.kevoree.tools.eclipse.preferences.PreferenceConstants;
 
 public class KevoreeLauncherShortcut implements ILaunchShortcut {
 
@@ -18,12 +21,14 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			IProject activeProject = file.getProject();
 			
 			String nodeName = "node0";
+			IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+			String version =store.getString(PreferenceConstants.P_STRING);
 
 			try {
 				if (activeProject.hasNature("org.nodeclipse.ui.NodeNature"))
 					KevoreeLauncher.runGruntGoal(activeProject,file.getRawLocation().toOSString(), nodeName,false);
 				else
-					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode,version);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,12 +54,15 @@ public class KevoreeLauncherShortcut implements ILaunchShortcut {
 			IProject activeProject = file.getProject();
 			
 			String nodeName = "node0";
+			IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+			String version =store.getString(PreferenceConstants.P_STRING);
+
 
 			try {
 				if (activeProject.hasNature("org.nodeclipse.ui.NodeNature"))
 					KevoreeLauncher.runGruntGoal(activeProject,file.getRawLocation().toOSString(), nodeName,false);
 				else
-					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode);
+					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode,version);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
