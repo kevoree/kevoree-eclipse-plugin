@@ -69,76 +69,81 @@
    </extension>
    
    <extension
-         id="org.eclipse.kevoree.ide.wizard"
+         id="kevoree-eclipse-plugin.newWizards"
          name="newKevoreeClass"
          point="org.eclipse.ui.newWizards">
-      <category
-      
-            id="org.eclipse.kevoree.ide.wizards"
+      <category      
+            id="kevoree-eclipse-plugin.wizards"
             name="Kevoree">
       </category>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeComponentWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewXtendClassWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewXtendClassWizard"
             name="New Xtend Kevoree Component">
-            <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeComponentWizard"/>
-			<description>
+            <description>
             	New Xtend Kevoree Component
          	</description>
       </wizard>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeChannelWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewXtendChannelWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewXtendChannelWizard"
             name="New Xtend Kevoree Channel">
-            <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeChannelWizard"/>
 			<description>	
             	New Xtend Kevoree Channel
          	</description>
       </wizard>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeGroupWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewXtendGroupWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewXtendGroupWizard"
             name="New Xtend Kevoree Group">
-            <class class="org.kevoree.tools.eclipse.wizard.NewXtendKevoreeGroupWizard"/>
 			<description>
             	New Xtend Kevoree Group
          	</description>
       </wizard>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeComponentWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewJavaClassWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewJavaClassWizard"
             name="New Java Kevoree Component">
-            <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeComponentWizard"/>
 			<description>
             	New Java Kevoree Component
          	</description>
       </wizard>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeChannelWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewJavaChannelWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewJavaChannelWizard"
             name="New Java Kevoree Channel">
-            <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeChannelWizard"/>
 			<description>
             	New Java Kevoree Channel
          	</description>
       </wizard>
       <wizard
-            category="org.eclipse.kevoree.ide.wizards"
-            icon="icons/kevs.png"
+            category="kevoree-eclipse-plugin.wizards"
+            class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeGroupWizard"
             descriptionImage="icons/kevs.png"
-            id="org.eclipse.kevoree.ide.wizards.NewJavaGroupWizard"
+            finalPerspective="org.eclipse.wst.jsdt.ui.JavaPerspective"
+            icon="icons/kevs.png"
+            id="kevoree-eclipse-plugin.wizards.NewJavaGroupWizard"
             name="New Java Kevoree Group">
-            <class class="org.kevoree.tools.eclipse.wizard.NewJavaKevoreeGroupWizard"/>
 			<description>
             	New Java Kevoree Group
          	</description>
@@ -149,65 +154,65 @@
       <perspectiveExtension
             targetID="org.eclipse.jdt.ui.JavaPerspective">
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendChannelWizard">
          </newWizardShortcut>
                   <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendGroupWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaChannelWizard">
          </newWizardShortcut>
                   <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaGroupWizard">
          </newWizardShortcut>
          
       </perspectiveExtension>
       <perspectiveExtension
             targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendChannelWizard">
          </newWizardShortcut>
                   <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendGroupWizard">
          </newWizardShortcut>         
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaChannelWizard">
          </newWizardShortcut>
                   <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaGroupWizard">
          </newWizardShortcut>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="org.eclipse.pde.ui.PDEPerspective">
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendChannelWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewXtendGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewXtendGroupWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaClassWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaClassWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaChannelWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaChannelWizard">
          </newWizardShortcut>
                   <newWizardShortcut
-               id="org.eclipse.kevoree.ide.wizards.NewJavaGroupWizard">
+               id="kevoree-eclipse-plugin.wizards.NewJavaGroupWizard">
          </newWizardShortcut>
       </perspectiveExtension>
    </extension>
@@ -220,7 +225,7 @@
 	 <extension
        point="org.eclipse.ui.newWizards">
     <wizard
-          category="org.eclipse.kevoree.ide.wizards"
+          category="kevoree-eclipse-plugin.wizards"
           class="org.kevoree.tools.eclipse.wizard.CreateNewKevoreeProject"
           finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
           icon="icons/kevs.png"
@@ -232,7 +237,7 @@
 	 <extension
        point="org.eclipse.ui.newWizards">
     <wizard
-          category="org.eclipse.kevoree.ide.wizards"
+          category="kevoree-eclipse-plugin.wizards"
           class="org.kevoree.tools.eclipse.wizard.CreateNewKevoreeProjectWithXtend"
             finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
           icon="icons/kevs.png"

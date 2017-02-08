@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Kevoree-eclipse-plugin
+Bundle-Name: kevoree-eclipse-plugin
 Bundle-SymbolicName: kevoree-eclipse-plugin;singleton:=true
 Bundle-Version: 5.4.0
 Bundle-Activator: org.kevoree.tools.eclipse.Activator
@@ -28,7 +28,23 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.wst.jsdt.core,
  org.eclipse.wst.jsdt.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
- lib/org.kevoree.maven.resolver-20.jar,
- lib/org.kevoree.kevscript-5.4.0.jar
+ lib/org.kevoree.kevscript-5.4.0.jar,
+ lib/org.kevoree.maven.resolver-20.jar
+Export-Package: org.kevoree.kevscript,
+ org.kevoree.kevscript.expression,
+ org.kevoree.kevscript.statement,
+ org.kevoree.kevscript.util,
+ org.kevoree.resolver,
+ org.kevoree.resolver.api,
+ org.kevoree.resolver.util,
+ org.kevoree.tools.eclipse,
+ org.kevoree.tools.eclipse.builder,
+ org.kevoree.tools.eclipse.launcher,
+ org.kevoree.tools.eclipse.preferences,
+ org.kevoree.tools.eclipse.wizard,
+ org.waxeye.ast,
+ org.waxeye.ast.print,
+ org.waxeye.input,
+ org.waxeye.parser
+Bundle-ActivationPolicy: lazy

@@ -9,7 +9,7 @@
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <xtend.version>2.10.0</xtend.version>
- 	<kevoree.version>5.3.2</kevoree.version>
+ 	<kevoree.version>5.4.0</kevoree.version>
     </properties>
 
     <dependencies>

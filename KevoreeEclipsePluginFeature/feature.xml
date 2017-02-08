@@ -2,7 +2,7 @@
 <feature
       id="KevoreeEclipsePluginFeature"
       label="KevoreeEclipsePluginFeature"
-      version="5.4.0.qualifier"
+      version="5.4.0"
       provider-name="Kevoree Team">
 
    <description url="http://www.kevoree.org">
