@@ -8,16 +8,11 @@
 	<name>kervoree-xtend-quickstart</name>
 		<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.10.0</xtend.version>
- 	<kevoree.version>5.4.0</kevoree.version>
+        <xtend.version>2.12.0</xtend.version>
+ 	<kevoree.version>5.5.0-SNAPSHOT</kevoree.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.kevoree</groupId>
-            <artifactId>org.kevoree.annotation.api</artifactId>
-            <version>${kevoree.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.kevoree</groupId>
             <artifactId>org.kevoree.api</artifactId>
@@ -40,7 +35,7 @@
 	<build>
 		<plugins>
 		      <plugin>
-                <groupId>org.kevoree.tools</groupId>
+                <groupId>org.kevoree</groupId>
                 <artifactId>org.kevoree.tools.mavenplugin</artifactId>
                 <version>${kevoree.version}</version>
                 <extensions>true</extensions>
@@ -52,6 +47,8 @@
                     </execution>
                 </executions>
                 <configuration>
+                   <namespace>mynamespace</namespace>
+                   <kevoree.version>5.5.0-SNAPSHOT</kevoree.version>
                     <nodename>node0</nodename>
                     <model>src/main/kevs/main.kevs</model>
                 </configuration>

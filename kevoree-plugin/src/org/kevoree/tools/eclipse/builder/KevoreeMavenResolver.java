@@ -21,10 +21,10 @@ public class KevoreeMavenResolver {
 
 
 
-    public static File resolve(String group, String name, String versionAsked, String extension) {
+    /*public static File resolve(String group, String name, String versionAsked, String extension) {
     	
         return resolver.resolve(group, name, versionAsked, extension, urls);
-    }
+    }*/
     
 
 

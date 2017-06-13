@@ -202,7 +202,7 @@ public class «componentName» {
     public void in(Object i) {
         String msg = message+" from "+context.getInstanceName()+"@"+context.getNodeName();
         System.out.println(msg);
-        out.send(msg,new Callback() {
+        out.send(msg/*,new Callback() {
 
 			public void onError(Throwable arg0) {
 				// TODO Auto-generated method stub				
@@ -212,7 +212,7 @@ public class «componentName» {
 				// TODO Auto-generated method stub
 				
 			}
-		});
+		}*/);
     }
 
     @Start

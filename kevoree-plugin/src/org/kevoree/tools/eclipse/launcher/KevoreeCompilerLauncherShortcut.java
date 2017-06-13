@@ -26,7 +26,7 @@ public class KevoreeCompilerLauncherShortcut implements ILaunchShortcut {
 				if (activeProject.hasNature("org.nodeclipse.ui.NodeNature"))
 					KevoreeLauncher.runGruntGoal(activeProject,file.getRawLocation().toOSString(), nodeName,true);
 				else
-					KevoreeLauncher.runMavenGoal(activeProject, "kev:run", file.getRawLocation().toOSString(), nodeName, mode,version);
+					KevoreeLauncher.runMavenGoal(activeProject, "clean install kev:run", file.getRawLocation().toOSString(), nodeName, mode,version);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

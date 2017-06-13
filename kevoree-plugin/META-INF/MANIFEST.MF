@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: kevoree-eclipse-plugin
 Bundle-SymbolicName: kevoree-eclipse-plugin;singleton:=true
-Bundle-Version: 5.4.0
+Bundle-Version: 5.5.0.qualifier
 Bundle-Activator: org.kevoree.tools.eclipse.Activator
 Bundle-Vendor: Kevoree Team
 Require-Bundle: org.eclipse.ui,
@@ -29,15 +29,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.wst.jsdt.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .,
- lib/org.kevoree.kevscript-5.4.0.jar,
- lib/org.kevoree.maven.resolver-20.jar
+ lib/org.kevoree.tools.kevscript-5.5.0-20170608.092041-2.jar,
+ lib/org.kevoree.tools.resolver.maven-5.5.0-20170608.092024-2.jar
 Export-Package: org.kevoree.kevscript,
  org.kevoree.kevscript.expression,
  org.kevoree.kevscript.statement,
  org.kevoree.kevscript.util,
  org.kevoree.resolver,
- org.kevoree.resolver.api,
- org.kevoree.resolver.util,
  org.kevoree.tools.eclipse,
  org.kevoree.tools.eclipse.builder,
  org.kevoree.tools.eclipse.launcher,

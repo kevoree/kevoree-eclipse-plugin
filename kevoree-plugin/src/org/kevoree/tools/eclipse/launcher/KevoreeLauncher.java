@@ -97,8 +97,8 @@ public class KevoreeLauncher implements ILaunchConfigurationDelegate {
 					config.setAttribute("M2_PROFILES", "");
 					config.setAttribute("M2_SKIP_TESTS", true);
 					config.setAttribute(ATTR_VM_ARGUMENTS,
-							"-Dkevoree.dev=true -Dmodel.debug.port=9080 -Dnode.bootstrap="
-									+ modelPath + " -Dnode.name=" + nodeName + " -Dkevoree.version=" + kevoreeversion);
+							"-Dkevoree.dev=true -Dmodel.debug.port=9080" /*-Dnode.bootstrap="
+									+ modelPath*/ + " -Dnode.name=" + nodeName + " -Dkevoree.version=" + kevoreeversion);
 
 					ILaunchConfiguration configuration1 = null;
 					configuration1 = config.doSave();
